@@ -27,10 +27,10 @@ def bib_to_csv(bib_paths, csv_output_path):
 
             combined_records.append(record)
 
-            df = pd.DataFrame(combined_records)
+    df = pd.DataFrame(combined_records)
 
-            os.makedirs(os.path.dirname(csv_output_path), exist_ok = True)
+    os.makedirs(os.path.dirname(csv_output_path), exist_ok = True)
 
-            df.to_csv(csv_output_path, index = False)
+    df.to_csv(csv_output_path, index = False)
 
-            return df
+    return df
