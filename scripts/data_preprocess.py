@@ -5,7 +5,7 @@ from pybtex.database import parse_file
 
 def bib_to_csv(bib_paths, csv_output_path):
     '''
-    
+    Converts one or more bib files to a CSV file. Formats author names to Lastname, Firstname; ... 
     '''
     if isinstance(bib_paths, str):
         bib_paths = [bib_paths]
