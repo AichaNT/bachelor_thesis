@@ -74,7 +74,4 @@ def fetch_metadata(input_paths, output_path, column_name, client, path_fetched_d
     print(f"Fetched {daily_query_count} new records.")
 
     return daily_query_count
-#----------------
-
-# function to flatten and format to CSV file
 
