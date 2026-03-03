@@ -66,7 +66,7 @@ def fetch_metadata(input_paths, output_path, column_name, client, path_fetched_d
 
     # Update fetched DOIs file
     all_fetched_dois = fetched_dois.union(new_fetched_dois)
-    pd.DataFrame({"DOI": list(all_fetched_dois)}).to_csv(
+    pd.DataFrame({"doi": list(all_fetched_dois)}).to_csv(
         path_fetched_dois,
         index = False
     )
