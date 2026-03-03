@@ -7,7 +7,7 @@ import springernature_api_client.meta as meta
 
 
 # daily fetch function
-def fetch_metadata(inupt_paths, output_path, column_name, client, path_fetched_dois, daily_limit = 450):
+def fetch_metadata(input_paths, output_path, column_name, client, path_fetched_dois, daily_limit = 450):
     '''
 
     '''
