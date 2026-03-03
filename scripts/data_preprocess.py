@@ -18,6 +18,9 @@ def bib_to_csv(bib_paths, csv_output_path):
         for key, entry in bib_data.entries.items():
             record = {}
 
+            # Add Item Type
+            record["Item Type"] = entry.type 
+
             for col, val in entry.fields.items():
                 record[col] = val
 
