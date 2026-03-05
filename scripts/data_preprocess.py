@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import json
 from pybtex.database import parse_file
 
 
@@ -37,3 +38,25 @@ def bib_to_csv(bib_paths, csv_output_path):
     df.to_csv(csv_output_path, index = False)
 
     return df
+
+
+# JSON to CSV
+def json_to_csv(input_path, output_path):
+    '''
+    
+    '''
+    with open(input_path, "r") as f:    
+        data = json.load(f)
+
+        for line in data:
+
+            df = pd.json_normalize(line)
+
+            df.columns = df.columns.map(lambda x: x.split(".")[-1])
+
+    pd.DataFrame(df).to_csv(
+            output_path,
+            index = False
+        )
+    
+    return None
