@@ -54,9 +54,8 @@ def json_to_csv(input_path, output_path):
 
             df.columns = df.columns.map(lambda x: x.split(".")[-1])
 
-    pd.DataFrame(df).to_csv(
-            output_path,
-            index = False
-        )
+    os.makedirs(os.path.dirname(output_path), exist_ok = True)
     
-    return None
+    df.to_csv(output_path, index = False)
+
+    return df
