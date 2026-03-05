@@ -45,15 +45,17 @@ def json_to_csv(input_path, output_path):
     '''
     
     '''
-    with open(input_path, "r") as f:   
-        print("ok")
-        data = json.load(f)
-        print("ok2")
-        for line in data:
-            print("ok3")
-            df = pd.json_normalize(line)
-            print("ok4")
-            df.columns = df.columns.map(lambda x: x.split(".")[-1])
+    data = []
+    with open(input_path) as f:
+        for line in f:
+            data.append(json.loads(line))
+    
+        
+    for line in data:
+        
+        df = pd.json_normalize(line)
+
+        df.columns = df.columns.map(lambda x: x.split(".")[-1])
 
     os.makedirs(os.path.dirname(output_path), exist_ok = True)
     
