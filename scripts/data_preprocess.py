@@ -63,7 +63,7 @@ def json_to_csv(input_path, output_path):
         if isinstance(i, list):
             lst = [(k,v)[1] for x in i if isinstance(x, dict) 
                     for (k,v) in x.items() if k == "creator"]
-            lst = ";".join([str(s) for s in lst])
+            lst = "; ".join([str(s) for s in lst])
 
         else:
             lst = str(i)
