@@ -58,7 +58,6 @@ def json_to_csv(input_path, output_path):
     creators_col = []
 
     for i in df["creators"]:
-        print(i)
 
         if isinstance(i, list):
             lst = [(k,v)[1] for x in i if isinstance(x, dict) 
