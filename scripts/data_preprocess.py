@@ -53,7 +53,7 @@ def json_to_csv(input_path, output_path):
         
     df = pd.json_normalize(data)
 
-    df["url"] = df["url"][0][0]["value"]
+    df["url"] = df["url"].apply(lambda x: x[0]["value"] if isinstance(x, list) else None)
     
     creators_col = []
 
