@@ -49,7 +49,8 @@ def json_to_csv(input_path, output_path):
     with open(input_path) as f:
         for line in f:
             obj = json.loads(line)
-            data.extend(obj["records"])  
+            print(len(obj["records"]))
+            data.extend(obj["records"])
         
     df = pd.json_normalize(data)
 
