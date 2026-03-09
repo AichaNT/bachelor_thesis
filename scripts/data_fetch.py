@@ -51,7 +51,8 @@ def fetch_metadata(input_paths, output_path, column_name, client, path_fetched_d
                 break
 
             try:
-                response = client.search(doi)
+                query = f'doi:"{doi}"'
+                response = client.search(query)
 
                 if response:
                     json.dump(response, json_file)
