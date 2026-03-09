@@ -75,3 +75,47 @@ def fetch_metadata(input_paths, output_path, column_name, client, path_fetched_d
 
     return daily_query_count
 
+
+def fetch_missing_dois(missing_dois_csv, output_json_path, api_client, daily_limit=450):
+    """
+    Fetch metadata only for missing DOIs and append to existing JSON file.
+    
+    Parameters:
+    - missing_dois_csv: CSV file with column 'doi' listing missing DOIs
+    - output_json_path: path to append the new JSON metadata
+    - api_client: instance of springernature_api_client.meta.MetaAPI
+    - daily_limit: max number of API calls per run
+    """
+    # Load missing DOIs
+    df_missing = pd.read_csv(missing_dois_csv)
+    doi_list = df_missing["doi"].dropna().astype(str).str.strip().tolist()
+    
+    print(f"Fetching metadata for {len(doi_list)} missing DOIs...")
+    
+    os.makedirs(os.path.dirname(output_json_path), exist_ok=True)
+    
+    count_fetched = 0
+    with open(output_json_path, "a") as f_json:
+        for doi in doi_list:
+            if count_fetched >= daily_limit:
+                print(f"Daily limit of {daily_limit} reached. Stopping.")
+                break
+            try:
+                # Use a DOI-specific query
+                query = f'doi:"{doi}"'
+                response = api_client.search(query)
+                
+                if response:
+                    json.dump(response, f_json)
+                    f_json.write("\n")
+                    f_json.flush()
+                    count_fetched += 1
+                    print(f"Fetched {count_fetched}: {doi}")
+                else:
+                    print(f"No result for DOI: {doi}")
+                    
+            except Exception as e:
+                print(f"Error fetching DOI {doi}: {e}")
+    
+    print(f"Finished fetching. Total new records: {count_fetched}")
+    return count_fetched
