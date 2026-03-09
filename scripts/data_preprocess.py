@@ -46,39 +46,31 @@ def json_to_csv(input_path, output_path, valid_dois):
     
     '''
     data = []
+
+    if not isinstance(valid_dois, set):
+        valid_dois = set([str(d).lower().strip() for d in valid_dois])
+
+
     with open(input_path) as f:
         for line in f:
             obj = json.loads(line)
 
-            match = None
             for rec in obj.get("records", []):
                 doi = rec.get("doi", "").lower().strip()
                 if doi in valid_dois:
-                    match = rec
-                    break
-
-            if match:
-                data.append(match)
-
+                    data.append(rec)
                 
     df = pd.json_normalize(data)
 
-    df["url"] = df["url"].apply(lambda x: x[0]["value"] if isinstance(x, list) else None)
-    
+    df["url"] = df.get("url").apply(lambda x: x[0]["value"] if isinstance(x, list) and len(x) > 0 else None)
+
     creators_col = []
-
-    for i in df["creators"]:
-
-        if isinstance(i, list):
-            lst = [(k,v)[1] for x in i if isinstance(x, dict) 
-                    for (k,v) in x.items() if k == "creator"]
-            lst = "; ".join([str(s) for s in lst])
-
+    for creators in df.get("creators", []):
+        if isinstance(creators, list):
+            lst = [c.get("creator") for c in creators if isinstance(c, dict) and "creator" in c]
+            creators_col.append("; ".join(lst))
         else:
-            lst = str(i)
-
-        creators_col.append(lst)
-    
+            creators_col.append(str(creators))
     df["creators"] = creators_col
 
     os.makedirs(os.path.dirname(output_path), exist_ok = True)
