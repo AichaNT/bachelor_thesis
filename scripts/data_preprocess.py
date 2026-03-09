@@ -41,7 +41,7 @@ def bib_to_csv(bib_paths, csv_output_path):
 
 
 # JSON to CSV
-def json_to_csv(input_path, output_path):
+def json_to_csv(input_path, output_path, valid_dois):
     '''
     
     '''
@@ -50,9 +50,17 @@ def json_to_csv(input_path, output_path):
         for line in f:
             obj = json.loads(line)
 
-            if obj.get("records"):
-                data.append(obj["records"][0])   # <-- change here
-        
+            match = None
+            for rec in obj.get("records", []):
+                doi = rec.get("doi", "").lower().strip()
+                if doi in valid_dois:
+                    match = rec
+                    break
+
+            if match:
+                data.append(match)
+
+                
     df = pd.json_normalize(data)
 
     df["url"] = df["url"].apply(lambda x: x[0]["value"] if isinstance(x, list) else None)
