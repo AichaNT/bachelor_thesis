@@ -55,11 +55,22 @@ def json_to_csv(input_path, output_path):
 
     df["url"] = df["url"][0][0]["value"]
     
+    creators_col = []
+
     for i in df["creators"]:
         print(i)
-        lst = [a[1] for x in df["creators"][0] for a in x.items() if a[0] == "creator"]
-        lst = ";".join([str(s) for s in lst])
-        df["creators"] = lst
+
+        if isinstance(i, list):
+            lst = [(k,v)[1] for x in i if isinstance(x, dict) 
+                    for (k,v) in x.items() if k == "creator"]
+            lst = ";".join([str(s) for s in lst])
+
+        else:
+            lst = str(i)
+
+        creators_col.append(lst)
+    
+    df["creators"] = creators_col
 
     os.makedirs(os.path.dirname(output_path), exist_ok = True)
     
