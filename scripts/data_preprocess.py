@@ -54,9 +54,9 @@ def json_to_csv(input_path, output_path):
     df = pd.json_normalize(data)
 
     df["url"] = df["url"][0][0]["value"]
-    print(type(df["creators"]))
+    
     for i in df["creators"]:
-        lst = [(k,v)[1] for x in df["creators"][0] for (k,v)in x.items() if k == "creator"]
+        lst = [(k,v)[1] for x in df["creators"][0] for (k,v)in x.items()[0] if k == "creator"]
         lst = ";".join([str(s) for s in lst])
         df["creators"] = lst
 
