@@ -2,112 +2,195 @@ Key,Ref,Year,"Sensor modality
 
 ","Sensor type
 
-"
+","Dataset
+
+",Dataset typ,"Simulated Real-life data / Lab environment / Synthetic data
+",Elderly included (60+)?
 abdu_activity_2022,\cite{abdu_activity_2022},2022,Ambient,"mmWave/FMCW radar
-"
-kaur_fall_2022,\cite{kaur_fall_2022},2022,Ambient,Acoustic
+","University of Glasgow radar human activity dataset
+",Public,Lab enviroment,Yes
+kaur_fall_2022,\cite{kaur_fall_2022},2022,Ambient,Acoustic,"Custom
+","Custom
+",Lab enviroment,No
 wang_indoor_2022,\cite{wang_indoor_2022},2022,Ambient,"Wi-Fi CSI
-"
+","Custom
+","Custom
+",Lab enviroment,No
 ji_sifall_2022,\cite{ji_sifall_2022},2022,Ambient,"Wi-Fi CSI
-"
-tohidypour_security-centric_2022,\cite{tohidypour_security-centric_2022},2022,Vision,RGB camera
+","Custom
+","Custom
+",Lab enviroment,No
+tohidypour_security-centric_2022,\cite{tohidypour_security-centric_2022},2022,Vision,RGB camera,"Custom
+","Custom
+",Lab enviroment,No
 lin_fall_2022,\cite{lin_fall_2022},2022,Vision,"RGB camera
-"
+","Custom
+","Custom
+",Lab enviroment,Yes
 prasad_real-time_2022,\cite{prasad_real-time_2022},2022,Vision,"Dynamic Vision Sensor (DVS)
-"
-yu_elderly_2022,\cite{yu_elderly_2022},2022,Wearable,Accelerometer
+","DVS UR Fall
+",Public,Lab enviroment,No
+yu_elderly_2022,\cite{yu_elderly_2022},2022,Wearable,Accelerometer,"SisFall
+",Public,Lab enviroment,Yes
 thipprachak_convolutional_2023,\cite{thipprachak_convolutional_2023},2023,Ambient,"UWB radar 
-"
+","Custom
+","Custom
+",Lab enviroment,Yes
 akash_elderly_2023,\cite{akash_elderly_2023},2023,Ambient,"mmWave/FMCW radar
-"
+","Custom
+","Custom
+",Lab enviroment,No
 gu_ir-st_2023,\cite{gu_ir-st_2023},2023,Ambient,"mmWave/FMCW radar
-"
-rocha_qoe-aware_2023,\cite{rocha_qoe-aware_2023},2023,Ambient,Vibration/Pressure sensing
-wu_toward_2023,\cite{wu_toward_2023},2023,Ambient,Vibration/Pressure sensing
+","Custom
+","Custom
+",Lab enviroment,No
+rocha_qoe-aware_2023,\cite{rocha_qoe-aware_2023},2023,Ambient,Vibration/Pressure sensing,"Custom
+","Custom
+",Lab enviroment,No
+wu_toward_2023,\cite{wu_toward_2023},2023,Ambient,Vibration/Pressure sensing,"Custom
+","Custom
+",Lab enviroment,No
 zhang_waffle_2023,\cite{zhang_waffle_2023},2023,Ambient,"mmWave/FMCW radar
-"
+","Custom
+","Custom
+",Lab enviroment,No
 he_noncontact_2023,\cite{he_noncontact_2023},2023,"Vision; Ambient
-",Microwave Doppler radar; Thermal Sensors
+",Microwave Doppler radar; Thermal Sensors,"Custom
+","Custom
+",Lab enviroment,No
 chen_fall_2023,\cite{chen_fall_2023},2023,"Vision; Ambient
-",Vibration/Pressure sensing; Thermal Sensors
+",Vibration/Pressure sensing; Thermal Sensors,"Custom
+","Custom
+",Lab enviroment,No
 qi_fl-fd_2023,\cite{qi_fl-fd_2023},2023,"Wearable; Vision
-",Accelerometer; Gyroscope; RGB cameras
+",Accelerometer; Gyroscope; RGB cameras,UP-Fall,Public,Lab enviroment,No
 ramesh_efficient_2023,\cite{ramesh_efficient_2023},2023,Vision,"RGB camera; Depth camera
-"
+",UR Fall; Custom,Mix,Lab enviroment,No
 prasad_hybrid_2023,\cite{prasad_hybrid_2023},2023,Vision,"Dynamic Vision Sensor (DVS)
-"
-naser_privacy-preserving_2023,\cite{naser_privacy-preserving_2023},2023,Vision,Thermal Sensors
-zahan_sdfa_2023,\cite{zahan_sdfa_2023},2023,Vision,RGB camera
-mobsite_semantic_2023,\cite{mobsite_semantic_2023},2023,Vision,RGB camera
+","DVSFall
+","Custom
+",Lab enviroment,No
+naser_privacy-preserving_2023,\cite{naser_privacy-preserving_2023},2023,Vision,Thermal Sensors,"Custom
+","Custom
+",Lab enviroment,No
+zahan_sdfa_2023,\cite{zahan_sdfa_2023},2023,Vision,RGB camera,"URFD; UPFD; UWA3D; NTU-60; NTU-120
+",Public,Lab enviroment,No
+mobsite_semantic_2023,\cite{mobsite_semantic_2023},2023,Vision,RGB camera,"Up-Fall, PRECIS HAR",Public,Lab enviroment,No
 saha_blockthefall_2023,\cite{saha_blockthefall_2023},2023,Wearable,"Accelerometer; Gyroscope; Magnetometer
-"
-reyad_developed_2023,\cite{reyad_developed_2023},2023,Wearable,Accelerometer
+",Custom,Custom,Lab enviroment,No
+reyad_developed_2023,\cite{reyad_developed_2023},2023,Wearable,Accelerometer,SmartFall,Public,Lab enviroment,No
 froehlich_millimeter-wave_2024,\cite{froehlich_millimeter-wave_2024},2024,Ambient,"mmWave/FMCW radar
-"
+","Custom
+",,Lab enviroment,No
 li_enhanced_2024,\cite{li_enhanced_2024},2024,Ambient,"mmWave/FMCW radar
-"
-liu_enhancing_2024,\cite{liu_enhancing_2024},2024,Ambient,Acoustic
+","Custom
+","Custom
+",Lab enviroment,No
+liu_enhancing_2024,\cite{liu_enhancing_2024},2024,Ambient,Acoustic,"Custom
+","Custom
+",Real world,Yes
 thipprachak_privacy-preserving_2024,\cite{thipprachak_privacy-preserving_2024},2024,Ambient,"UWB radar
-"
+","Custom
+","Custom
+",Lab enviroment,No
 chen_sensing_2024,\cite{chen_sensing_2024},2024,Ambient,"Wi-Fi CSI
-"
+","Custom
+","Custom
+",Lab enviroment,No
 razali_threshold,\cite{razali_threshold},2024,Ambient,"Passive Wi-Fi radar
-"
-mobsite_privacy-preserving_2024,\cite{mobsite_privacy-preserving_2024},2024,Vision,RGB camera
-de_frutos_fall_2024,\cite{de_frutos_fall_2024},2024,Vision,RGB camera
-wu_video-based_2024,\cite{wu_video-based_2024},2024,Vision,RGB camera
-wang_artificial_2024,\cite{wang_artificial_2024},2024,Wearable,Accelerometer; Gyroscope
+","Custom
+","Custom
+",Lab enviroment,No
+mobsite_privacy-preserving_2024,\cite{mobsite_privacy-preserving_2024},2024,Vision,RGB camera,UP-Fall; PRECIS HAR,Public,Lab enviroment,No
+de_frutos_fall_2024,\cite{de_frutos_fall_2024},2024,Vision,RGB camera,"CAUCAFall
+",Public,Lab enviroment,No
+wu_video-based_2024,\cite{wu_video-based_2024},2024,Vision,RGB camera,"CFDD
+",Public,Lab enviroment,No
+wang_artificial_2024,\cite{wang_artificial_2024},2024,Wearable,Accelerometer; Gyroscope,MMsys; SisFall; Custom,Public,Lab enviroment,Yes
 rowaili_fall_2024,\cite{rowaili_fall_2024},2024,Wearable,"Accelerometer; Gyroscope; Heart-rate sensor; GPS
-"
-afandy_federated_2024,\cite{afandy_federated_2024},2024,Wearable,Accelerometer; Heart-rate sensor
+",Custom,"Custom
+",Lab enviroment,No
+afandy_federated_2024,\cite{afandy_federated_2024},2024,Wearable,Accelerometer; Heart-rate sensor,"Nho et al.
+",Public,Lab enviroment,No
 bayad_adaptive_2025,\cite{bayad_adaptive_2025},2025,Ambient,"Wi-Fi CSI
-"
+","ENetFall
+",Public,Lab enviroment,No
 kim_amfall_2025,\cite{kim_amfall_2025},2025,Ambient,"Wi-Fi CSI
-"
+","Custom
+","Custom
+",Lab enviroment,No
 istiqomah_comparing_2025,\cite{istiqomah_comparing_2025},2025,Ambient,"mmWave/FMCW radar
-"
+","Custom
+","Custom
+",Lab enviroment,No
 liang_edge-accelerated_2025,\cite{liang_edge-accelerated_2025},2025,Ambient,"mmWave/FMCW radar
-"
-chen_fall_2025,\cite{chen_fall_2025},2025,Ambient,Electrostatic sensor
+","Custom
+","Custom
+",Lab enviroment,No
+chen_fall_2025,\cite{chen_fall_2025},2025,Ambient,Electrostatic sensor,"Custom
+","Custom
+",Lab enviroment,No
 regani_fallaware_2025,\cite{regani_fallaware_2025},2025,Ambient,"Wi-Fi CSI 
-"
+","Custom
+","Custom
+",Lab enviroment;Real world,Yes
 meng_gr-fall_2025,\cite{meng_gr-fall_2025},2025,Ambient,"mmWave/FMCW radar
-"
+","Custom
+","Custom
+",Lab enviroment,No
 razali_implementing_2025,\cite{razali_implementing_2025},2025,Ambient,"Passive Wi-Fi radar
-"
+","Custom
+","Custom
+",Lab enviroment,No
 tan_real-time_2025,\cite{tan_real-time_2025},2025,Ambient,"mmWave/FMCW radar
-"
+","Custom
+","Custom
+",Lab enviroment,No
 cho_wi-fi-based_2025,\cite{cho_wi-fi-based_2025},2025,Ambient,"Wi-Fi CSI
-"
+","MM-Fi dataset; Custom dataset
+",Mix,Lab enviroment,No
 chakraborty_smart_2025,\cite{chakraborty_smart_2025},2025,"Vision; Ambient
-",Vibration/Pressure sensing; RGB camera
+",Vibration/Pressure sensing; RGB camera,"CAUCAFall; Custom
+",Mix,Lab enviroment,No
 abdelfattah_hybrid_2025,\cite{abdelfattah_hybrid_2025},2025,"Wearable; Ambient
 ","Accelerometer; Gyroscope; Wi-Fi CSI
-"
-aime_human-centric_2025,\cite{aime_human-centric_2025},2025,Wearable; Vision; Ambient,Accelerometer; Gyroscope; Heart-rate sensor; Temperature sensor; RGB camera
+",KFall; NTU-Fi HAR,Public,Lab enviroment,No
+aime_human-centric_2025,\cite{aime_human-centric_2025},2025,Wearable; Vision; Ambient,Accelerometer; Gyroscope; Heart-rate sensor; Temperature sensor; RGB camera,UP-Fall,Public,Lab enviroment,No
 lupion_privacy-aware_2025,\cite{lupion_privacy-aware_2025},2025,"Wearable; Vision
-",Thermal sensor; Accelerometer; Gyroscope
+",Thermal sensor; Accelerometer; Gyroscope,"UAL-MFDD
+",Public,Lab enviroment,No
 hossain_towards_2025,\cite{hossain_towards_2025},2025,"Wearable; Vision
-",Accelerometer; Gyroscope; RGB camera
-tirziu_artificial_2025,\cite{tirziu_artificial_2025},2025,Vision,RGB camera
-tongsrihon_carevision_2025,\cite{tongsrihon_carevision_2025},2025,Vision,RGB camera
-halima_edge_2025,\cite{halima_edge_2025},2025,Vision,RGB camera
+",Accelerometer; Gyroscope; RGB camera,UP-Fall,Public,Lab enviroment,No
+tirziu_artificial_2025,\cite{tirziu_artificial_2025},2025,Vision,RGB camera,"Custom + Public datasets/videos
+",Mix,Lab enviroment,No
+tongsrihon_carevision_2025,\cite{tongsrihon_carevision_2025},2025,Vision,RGB camera,Custom,"Custom
+",Lab enviroment,No
+halima_edge_2025,\cite{halima_edge_2025},2025,Vision,RGB camera,"Custom
+","Custom
+",Lab enviroment,No
 b_fall_2025,\cite{b_fall_2025},2025,Vision,"Depth camera
-"
+","Custom
+","Custom
+",Lab enviroment,No
 sanjalawe_hyperfallnet_2025,\cite{sanjalawe_hyperfallnet_2025},2025,Vision,"RGB camera
-"
+","CUCAFall; DiverseFALL10500
+",Public,Lab enviroment,No
 fauzi_privacy-aware_2025,\cite{fauzi_privacy-aware_2025},2025,Vision,"RGB camera
-"
+","Le2i Fall
+",Public,Lab enviroment,No
 ma_fall_2025,\cite{ma_fall_2025},2025,Vision,"Thermal sensor
-"
+","Custom
+","Custom
+",Lab enviroment,No
 razali_enhancing_2025,\cite{razali_enhancing_2025},2025,Wearable,"Accelerometer; Gyroscope; GPS
-"
+",Custom,"Custom
+",Lab enviroment,No
 pathan_fedfall_2025,\cite{pathan_fedfall_2025},2025,Wearable,"Accelerometer; Gyroscope; Magnetometer
-"
-souadia_securing_2025,\cite{souadia_securing_2025},2025,Wearable,Accelerometer
-l_smart_2025,\cite{l_smart_2025},2025,Wearable,Accelerometer; Gyroscope; Heart-rate sensor; Temperature sensor; GPS; SpO2 sensor
-wing_lo_high_2026,\cite{wing_lo_high_2026},2026,Ambient,Infrared (IR)
+",UMAFall,Public,Lab enviroment,No
+souadia_securing_2025,\cite{souadia_securing_2025},2025,Wearable,Accelerometer,MobiAct; UNIMIB; SisFAll; FALLALLD,Public,Lab enviroment,Yes
+l_smart_2025,\cite{l_smart_2025},2025,Wearable,Accelerometer; Gyroscope; Heart-rate sensor; Temperature sensor; GPS; SpO2 sensor,Custom,Custom,Lab enviroment,No
+wing_lo_high_2026,\cite{wing_lo_high_2026},2026,Ambient,Infrared (IR),Custom,Custom,Lab enviroment,No
 patriananda_inception-resnet_2026,\cite{patriananda_inception-resnet_2026},2026,Ambient,"mmWave/FMCW radar
-"
+",Custom,Custom,Lab enviroment,No
 almallah_intnet_2026,\cite{almallah_intnet_2026},2026,Ambient,"mmWave/FMCW radar
-"
+",Custom,Custom,Lab enviroment,No
