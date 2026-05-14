@@ -2,620 +2,112 @@ Key,Ref,Year,"Sensor modality
 
 ","Sensor type
 
-","Dataset
-
-","Data type
-
-","Computational Approach
-
-","Processing Architecture
-
-","Data Transmission / Handling
-
-","Data storage
-","Privacy-preserving mechanisms
-
-","Security mechanisms 
-
-","Threats
-
-","Reported privacy/security risks 
-
 "
-yu_elderly_2022,\cite{yu_elderly_2022},2022,Wearable,Accelerometer,"SisFall
-",Motion signals,Classic ML + DL,"Local / Edge + Cloud
-","Local sensor data processed on client devices; model parameters uploaded to cloud for federated aggregation; no raw user data shared
-","Local user data storage; cloud model parameter storage
-","Federated Learning; Local processing
-","None explicitly specified
-","Privacy leakage from sharing elderly user activity data between users/servers
-",Potential privacy leakage from centralized sharing of user activity data; incorrect manual labeling may reduce federated model quality; lack of real-world data; possible performance degradation from mislabeled updates
-wang_artificial_2024,\cite{wang_artificial_2024},2024,Wearable,"Accelerometer, Gyroscope",MMsys; SisFall; Custom,Motion signals,Threshold + DL,"Local / Edge + Cloud
-","Sensor data processed locally on FPGA edge device; encrypted alarm signals and raw data transmitted to cloud via 5G; hard-wired I2C communication used internally
-",Cloud raw-data storage; local model storage; on-chip parameter storage,"Homomorphic Encryption; Local / Edge Processing
-","Homomorphic encryption; encrypted data transmission
-","Privacy leakage during data transmission, cloud storage, and third-party cloud processing
-",Privacy exposure from transmission/storage of sensitive motion data; privacy concerns associated with centralized cloud analysis; potential exposure of personal activity information
-saha_blockthefall_2023,\cite{saha_blockthefall_2023},2023,Wearable,"Accelerometer, Gyroscope, Magnetometer
-",Custom,Motion signals,Classic ML + DL,Local / Edge + Cloud,"Sensor data transmitted from wearable device to cloud server API; alerts sent to caregivers/emergency contacts; blockchain used for secure storage and verification
-","Blockchain-based cloud storage
-","Blockchain
-",Blockchain; Cryptography; Smart contracts,"Unauthorized access; medical data alteration; data theft; unauthorized sharing of sensitive health data
-",Data breaches in mHealth systems; unauthorized sharing of medical data; data theft; data loss; alteration of patient records; privacy risks related to sensitive health information transmission and storage
-reyad_developed_2023,\cite{reyad_developed_2023},2023,Wearable,Accelerometer,SmartFall,Motion signals,"Classic ML
-","Cloud
-",Accelerometer data transmitted via Internet to healthcare cloud server; alerts sent to caregivers/emergency services,"Cloud patient-data archiving
-","Wearable sensing; future consideration of federated learning
-","Not implemented; encryption/decryption proposed for future work
-","Unauthorized access to healthcare IoT data; privacy/security risks in IoHT systems
-",Lack of advanced security/privacy mechanisms in current IoHT fall detection systems; need for encryption and trustworthy IoT healthcare platforms
-razali_enhancing_2025,\cite{razali_enhancing_2025},2025,Wearable,"Accelerometer, Gyroscope, GPS
-",Custom,"Motion signals, Location data","Classic ML
-",Local / Edge + Cloud,"Sensor data transmitted via Wi-Fi to Blynk IoT cloud; Alerts and GPS location transmitted to caregivers
-","Cloud historical-data storage
-","Wearable non-visual sensing
-","Wi-Fi communication; Cloud-based authenticated access via Blynk
-","False alarms; Missed fall detection; Privacy concerns from camera-based systems
-",Privacy issues in webcam-based systems; False positives; False negatives; Network/connectivity dependence
-rowaili_fall_2024,\cite{rowaili_fall_2024},2024,Wearable,"Accelerometer, Gyroscope, Heart-rate sensor, GPS
-",Custom,"Motion signals, Physiological signals, Location data","Threshold-based
-","Local / Edge + Cloud
-","Sensor data transmitted via Bluetooth to smartphone app; Alerts and user location sent to hospital/emergency contacts via Wi-Fi/4G
-","Cloud historical-data storage
-","Lightweight encryption; Non-visual sensing
-","Custom encryption; Key-based access control,  only users with the key can decrypt; keys periodically changed
-","Unauthorized access to cloud-stored health data; False alarms; Delayed emergency response,  assumes unauthorized parties cannot access data without keys; no detailed adversary modeling provided
-","Sensitive user data exposure in cloud storage; Weak/custom encryption limitations; False alarms; Dependence on Bluetooth/mobile connectivity,  risk if encryption key is compromised; cloud storage could be targeted, but key separation mitigates access"
-afandy_federated_2024,\cite{afandy_federated_2024},2024,Wearable,"Accelerometer, Heart-rate sensor","Custom (Nho et al. wearable fall detection dataset)
-","Motion signals, Physiological signals",Classic ML + DL,"Local / Edge + Cloud
-","Model updates only transmitted; wearable data processed locally
-","Local raw-data storage
-","Federated Learning; Local / Edge Processing
-","Model update aggregation in FL
-","Unauthorized access or misuse of sensitive wearable data during centralized training
-",Privacy leakage from continuous wearable monitoring; heterogeneous client data may weaken global model performance
-pathan_fedfall_2025,\cite{pathan_fedfall_2025},2025,Wearable,"Accelerometer, Gyroscope, Magnetometer
-",UMAFall (fall subset),Motion signals,DL,Local / Edge + Cloud,Model updates/gradients only transmitted; raw data kept local,Local raw-data storage; Global model storage at server,Federated Learning; Local / Edge Processing,Secure decentralized training (implicit FL-based protection),"Privacy leakage from centralized raw sensor sharing
-",Exposure of sensitive wearable/activity data; privacy risks from centralized cloud processing; heterogeneous/non-uniform client data challenges
-souadia_securing_2025,\cite{souadia_securing_2025},2025,Wearable,Accelerometer,MobiAct; UNIMIB; SisFAll; FALLALLD,Motion signals,DL,Local / Edge + Cloud,"Model updates transmitted to server; raw data remains on-device; differential privacy noise added to model updates before transmission
-","Local raw-data storage on client/edge devices; global model maintained on aggregation server
-","Federated Learning; Differential Privacy; Local / Edge Processing; Personalization layer for non-IID data
-","Differential privacy noise injection into model updates
-",Data breaches from centralized learning; leakage of sensitive personal/activity data; exposure of client data through model updates; privacy risks in IoT healthcare systems; non-IID data heterogeneity challenges,Centralized ML exposes sensitive user data to potential breaches; privacy noise can reduce model accuracy and increase loss; differential privacy introduces computational overhead and scalability challenges; communication overhead increases with more clients; heterogeneous/non-IID client data affects model performance
-l_smart_2025,\cite{l_smart_2025},2025,Wearable,"Accelerometer, Gyroscope, Heart-rate sensor, Temperature sensor, GPS, SpO2 sensor",Custom,"Motion signals, Physiological signals, Location data",Threshold + Classic ML,"Local / Edge + Cloud
-","Alerts and processed data transmitted via GSM/GPS; IoT cloud connectivity for remote monitoring; on-device processing reduces continuous cloud communication; SMS alerts with GPS location sent to caregivers
-",IoT cloud historical-data storage; previous activity and sensor data stored for online access and health monitoring,"Local / Edge Processing; Non-intrusive wearable sensing; Secure data handling
-","Secure data handling; on-device processing to improve data security
-","Privacy issues with CCTV surveillance; delayed medical response after falls; false positives/false negatives in fall detection; communication/power instability affecting monitoring reliability
-",CCTV-based monitoring causes significant privacy concerns; low thresholds may cause false alarms from ADLs; high thresholds may miss real falls; wearable systems may lack injury prevention; cloud/IoT connectivity may expose sensitive health/location data if not securely handled; scalability and reliability concerns in real-world deployment
-abdelfattah_hybrid_2025,\cite{abdelfattah_hybrid_2025},2025,"Multimodal (Wearable + Ambient)
-","Accelerometer; Gyroscope; Wi-Fi CSI
-",KFall; NTU-Fi HAR,Motion signals; RF signal variations,"Classic ML
-","Local / Edge
-",Wearable sensor continuously monitors locally; WiFi verification module activated conditionally upon suspected fall; final alerts generated only after verification,"Not explicitly specified
-","Non-visual sensing; Conditional WiFi activation to minimize privacy exposure; WiFi CSI–based contactless sensing
-","Not explicitly specified
-","False alarms/false positives; Privacy concerns from vision-based monitoring; Environmental sensitivity and multipath interference in WiFi CSI; Signal blockage; Overfitting to spatial layouts; Sensor discomfort/compliance issues; Computational overhead
-",Vision systems raise significant privacy concerns due to continuous video processing; WiFi CSI affected by environmental dynamics and interference leading to inconsistent performance; Wearable systems may reduce user comfort and compliance; Single-modality systems prone to false positives from abrupt daily activities; Overfitting limits generalization across environments
-he_noncontact_2023,\cite{he_noncontact_2023},2023,"Multimodal (Vision + Ambient)
-","Infrared camera / thermopile IR array sensor (32×32 MEMS IR sensor); Radar sensor (5.8 GHz low-cost radar)
-","Custom
-","Thermal imagery, Radar reflections",Threshold + DL,"Local / Edge
-","WiFi module used for IoT communication and remote fall alarms; processing primarily performed locally on MCU; alerts transmitted remotely
-","Not explicitly stated
-","Non-visual sensing; Low-resolution thermal imaging; Edge/local processing; Noncontact and privacy-preserved sensing
-","Not explicitly stated
-",Ambient thermal noise; Residual/existing heat sources; Environmental temperature variation; Sunlight/light interference; Presence of other persons; Motion/activity interference; Network instability affecting cloud computing reliability,Vision-based systems may cause privacy invasion; cloud computing considered unreliable and not real-time under unstable networks; thermal sensing accuracy decreases at high ambient temperatures; possible misjudgments from residual heat sources and environmental interference; PIR-only sensing lacks image detail causing false detections
-chen_fall_2023,\cite{chen_fall_2023},2023,"Multimodal (Vision + Ambient)
-","Geophone (floor vibration sensor); Thermal imaging camera / Infrared thermal sensor (MLX90640)
-","Custom
-",Thermal imagery; Pressure/vibration signals;,"Threshold + Classic ML
-","Local / Edge + Cloud
-","Bluetooth communication between sensor modules; “Fall Detected” alerts transmitted to Raspberry Pi; Fall alert, timestamp, and thermal snapshot uploaded to Firebase via Wi-Fi; Only detected fall incidents transmitted/stored",Cloud historical-data storage (Firebase fall alerts and snapshots); No continuous real-time sensor data storage,"Non-visual sensing (Geophone); Low-resolution thermal imaging; Edge/local processing; Event-triggered transmission only; No continuous sensor-data storage; Privacy-conscious physical design
-","Not explicitly specified
-","Privacy invasion from intrusive cameras; Data breaches; Missed fall events due to forgotten wearable devices or dead batteries
-",Potential privacy infringement from camera-based systems; Risk of data breaches in cloud-connected systems; Wearable-device noncompliance or device abandonment; Possible system reliability concerns if batteries fail
-qi_fl-fd_2023,\cite{qi_fl-fd_2023},2023,"Multimodal (Wearable + Vision)
-","Accelerometer, Gyroscope,; RGB cameras",UP-Fall,Motion signals; RGB video/images,"DL (3-layer CNN under Federated Learning); Input-level multimodal fusion using GAF encoding
-",Local / Edge + Cloud (clients perform local training; server aggregates global model),"No raw user data shared; only local model parameters/gradient updates transmitted between clients and server
-","Local data retained on client devices; global model stored/aggregated at server
-","Federated Learning; Local/Edge Processing; Input-level fusion without raw-data sharing
-","Model parameter exchange only; privacy-preserving distributed learning
-",Privacy leakage from centralized DL systems; non-IID client data issues; communication burden in FL; potential exposure of facial and physical characteristics if raw data shared,Traditional centralized DL leaks user privacy; wearable/camera data may expose facial and physical characteristics; communication overhead in FL; statistical heterogeneity (non-IID data) may reduce model accuracy; larger FL models may create communication bottlenecks
-aime_human-centric_2025,\cite{aime_human-centric_2025},2025,Multimodal (Wearable + Vision + Ambient),"Wearable: Accelerometer, Gyroscope, Heart-rate sensor, Temperature sensor; Vision: RGB camera; (Ambient: IoT/ambient sensors?)
-",UP-Fall,"Physiological signals; RGB video/images; Motion signals,  RGB video streams, optical flow sequences",Classic ML + DL,"Local / Edge + Cloud
-",Model updates only transmitted through federated learning; anonymized Gaussian splats and alerts transmitted to caregivers instead of raw visual data; raw data processed locally on edge devices,Not explicitly specified; implied local edge processing/storage of raw data and anonymized representations for transfer,Federated Learning; Local / Edge Processing; Gaussian-based visual obfuscation; Gaussian splatting anonymization; Non-visual/abstracted activity representation,Not explicitly specified,Privacy leakage from cloud-based monitoring; exposure of sensitive health and identity information; risks from transmitting/storing raw personal data; privacy concerns with camera monitoring; latency and bandwidth risks in centralized systems,Raw personal data exposure in cloud systems; identity/privacy leakage from visual monitoring; class imbalance affecting reliable fall detection; limited privacy protection in conventional HAR systems; possible reduced trust and dignity concerns in elderly monitoring
-lupion_privacy-aware_2025,\cite{lupion_privacy-aware_2025},2025,"Multimodal (Wearable + Vision)
-",Thermal camera (FLIR Lepton 3.5); Accelerometer; Gyroscope,"UAL-Multimodal Fall Detection Dataset (UAL-MFDD) (Custom dataset)
-","Thermal imagery; Motion signals, ptical flow fields; audio interactions",Classic ML + DL,"Local / Edge + Cloud
-",Sensor data transmitted locally over Wi-Fi and MQTT broker; IMU data buffered and transmitted every 2 seconds to local computer; Edge-based local processing for fall detection; Internet connectivity only used for alerts; Alexa voice data partially handled through Amazon infrastructure; alerts sent through Telegram/SMS/calls,Local raw-data storage on local computer; Local processing and storage of thermal images and IMU signals; Minimal external transmission; No continuous cloud raw-data storage described,Thermal imaging instead of RGB cameras; Edge/local processing; Non-visual sensing (wearables/IMU); Local execution of LLM; Data kept within local network; Limited Internet use only for alerts; Privacy-aware multimodal sensing,"Secure local architecture; SSH tunnel using ngrok; Local API hosting; Wi-Fi network isolation; Reduced external data transmission
-",Privacy invasion from visible-spectrum cameras; Data breaches from transmitting personal data externally; False positives in fall alerts; Environmental disturbances affecting thermal sensing; Occlusions; Synchronization challenges in multi-view systems; Computational complexity; Generalization limitations,Visible-spectrum cameras perceived as intrusive; Potential exposure of thermal images and IMU data if transmitted externally; Privacy concerns hindering deployment in real environments; Ethical/privacy concerns in health monitoring; False alarms reducing trust/adoption; Environmental variability impacting reliability; Risks associated with cloud-based voice assistant infrastructure
-chakraborty_smart_2025,\cite{chakraborty_smart_2025},2025,"Multimodal (Vision + Ambient)
-",Geophone / floor vibration sensor (ambient seismic sensor); RGB camera,"CAUCAFall dataset; Custom real-time floor vibration dataset
-","Pressure/vibration signals; RGB video/images; Skeleton/keypoint data
-","Threshold + Classic ML
-","Local / Edge + Cloud
-",Floor vibration trigger transmitted over Wi-Fi; extracted pose landmarks uploaded to cloud; images/video not uploaded for classification; cloud-based ML inference; notifications and logs stored with datetime stamps,"Cloud storage of detection logs and extracted landmark features; local temporary video capture
-",Landmark/keypoint extraction instead of transmitting/storing raw video; event-triggered camera activation; ambient sensing; reduced runtime of camera; cloud processing only on extracted features,"Wi-Fi communication; local cloud/Flask deployment (no explicit encryption/authentication/security protocol discussed)
-","Privacy invasion from continuous video surveillance; wearable usability issues (device discomfort, not wearing, charging problems); false alarms from floor vibration events such as dropped objects",Vision-based monitoring hinders user privacy; cloud communication may expose transmitted landmark data; floor vibration sensing performance depends on floor/ground characteristics; potential overfitting with large feature sets; reliance on network/cloud connectivity for processing
-hossain_towards_2025,\cite{hossain_towards_2025},2025,"Multimodal (Wearable + Vision)
-","Accelerometer, Gyroscope, RGB camera",UP-Fall,Motion signals; RGB video/images;( Grayscale motion images; Skeleton/motion-related visual representations; Spatial-temporal fused representations),DL,"Local / Edge + Cloud
-",Only model updates/weights transmitted to central server using Federated Learning (FedAvg); raw sensor and camera data remain on-device; decentralized local training on client devices,"Local raw-data storage on client devices; global model storage on central/cloud server
-","Federated Learning (FL); Local / Edge Processing; Multimodal fusion without raw-data sharing; On-device training; Resource-aware decentralized processing
-","Secure transmission of model updates implied; no explicit encryption/authentication implemented in proposed system
-","Privacy leakage from vision/video data; inference attacks; Byzantine attacks (discussed in related work); collusion risks; exposure of sensitive personal information; non-IID data challenges; communication overhead; device heterogeneity; client dropout and bandwidth fluctuations
-","Vision-based systems may expose sensitive personal information; federated learning may still face inference/collusion risks; secure aggregation and DP+SMC not implemented in current system; communication/computational overhead for stronger cryptographic privacy methods; real-world deployment risks from asynchronous streams, missing data, environmental noise, and heterogeneous devices"
-mobsite_privacy-preserving_2024,\cite{mobsite_privacy-preserving_2024},2024,Vision,RGB camera,UP-Fall; PRECIS HAR,RGB video/images; Motion representations (GBR); Skeleton/keypoint data (GBK),DL,"Local / Edge + Cloud
-","Raw RGB video is preprocessed at the edge; only extracted motion features and body keypoint representations are transmitted to the cloud for classification
-","Not explicitly stated
-",Local / Edge Processing; Privacy-preserving feature extraction; Non-visual abstraction of RGB data through motion maps and keypoints,"Not explicitly stated
-","Privacy leakage from indoor camera monitoring; False fall detection / false alarms; Misclassification between falls and normal activities; Exposure of sensitive information from bedroom/bathroom monitoring
-",Camera monitoring may infringe user privacy; Raw RGB data may expose sensitive personal/environmental information; False positives and false negatives in fall detection; Noise and irrelevant environmental motion can affect classification; Continuous surveillance concerns and user acceptance issues
-tohidypour_security-centric_2022,\cite{tohidypour_security-centric_2022},2022,Vision,RGB camera,"Custom live test scenarios
-",RGB video/images,DL,Local / Edge,Entire inference performed locally on the camera/Jetson Nano device; only fall notifications sent to caregiver; no cloud transmission of video data,No persistent storage of frames; frames deleted after processing; temporary buffer/memory only,Local / Edge Processing; No data storage; Immediate frame deletion; Garbage collection for memory cleanup,"Reduced attack surface through on-device processing; Memory cleanup/garbage collection to reduce accidental or malicious retention of frames
-","Hacking/interception of video data during transfer; Intrusiveness of video monitoring; Unauthorized storage of frames/buffered data; Privacy leakage from camera monitoring
-",Video-based monitoring is intrusive and raises privacy concerns; Frames stored in memory/buffers could be accidentally stored or intentionally hacked; Existing cloud/video-transfer systems increase exposure risk; Limited hardware memory could lead to unsafe buffering/storage practices
-tirziu_artificial_2025,\cite{tirziu_artificial_2025},2025,Vision,RGB camera,"Custom + Public datasets/videos
-","RGB video/images; Skeleton/keypoint data
-","Threshold + DL
-",Local / Edge,Real-time video processed locally; alerts transmitted to caregivers/family members via Telegram; only skeletal key points processed instead of storing raw visual data,"No raw visual data storage implied; skeletal/keypoint-based processing only
-","Pose estimation/keypoint-only processing; Non-intrusive monitoring; Local/on-device processing emphasized; Avoidance of raw image storage/anonymization through skeletal representation
-","Real-time video processed locally; alerts transmitted to caregivers/family members via Telegram; only skeletal key points processed instead of storing raw visual data
-","Unauthorized access; system vulnerabilities; privacy leakage from camera-based monitoring; false positives; false negatives; device limitations; variability in fall scenarios; camera placement/viewing-angle issues
-",Camera-based monitoring raises ethical/privacy concerns; false alarms may reduce trust; missed falls pose safety risks; reliability affected by lighting/clutter/view angle; low-power devices may reduce accuracy or increase delay; potential unauthorized access/system vulnerabilities
-tongsrihon_carevision_2025,\cite{tongsrihon_carevision_2025},2025,Vision,"RGB camera (Raspberry Pi Camera Module V3 smart camera)
-",Custom,"RGB video/images; Skeleton/keypoint data
-","Threshold + DL
-",Local / Edge,"Real-time image processing performed locally on Raspberry Pi; alert messages and incident images transmitted to caregivers via Telegram Bot; avoids external/cloud raw-data transmission
-","Local raw-data storage (incident images stored on Raspberry Pi local memory/device storage)
-","Local / Edge Processing; on-device processing; reduced external data transmission; local image storage
-","Not explicitly specified
-","Privacy leakage from camera monitoring; delayed caregiver response; false positives; false negatives; incomplete body detection; excessive leaning misclassification
-","Camera-based monitoring may raise privacy concerns; false alarms may reduce reliability; incomplete body detection can reduce accuracy; posture misclassification (e.g., leaning while sitting); system accuracy still requires improvement for real-world isolated environments"
-halima_edge_2025,\cite{halima_edge_2025},2025,Vision,RGB camera,"Custom composite dataset combining Kaggle fall-detection dataset and Roboflow Universe collection
-",RGB video/images,DL,Local / Edge,"On-device processing on Jetson Nano; only compact alerts/metadata transmitted via Wi-Fi using MQTT or HTTPS; optional cropped thumbnail transmission; metadata-only alerts supported
-","Local log storage; optional local storage of hashes instead of raw frames; optional server synchronization for maintenance
-","Local / Edge Processing; on-device inference; metadata-only alerts; no continuous cloud access; hashes instead of raw frames; optional omission of thumbnails; privacy-aware edge AI processing
-","Authenticated endpoints; HTTPS/MQTT communication; over-the-air update rollback support
-","Privacy leakage from raw video sharing; network interruptions; false alarms; missed falls; occlusions; lighting variation; scene complexity; multiperson scenes; train-test leakage; unauthorized data exposure
-",Vision systems raise privacy concerns in domestic environments; lighting/viewpoint sensitivity may reduce robustness; false positives and missed incidents remain possible; environmental variability affects performance; occlusions and crowded scenes challenge detection; limited robustness in realistic home settings; potential configuration/path issues during deployment; need for reinforced privacy mechanisms in future robot deployment
-ramesh_efficient_2023,\cite{ramesh_efficient_2023},2023,Vision,"RGB camera; Depth camera
-","CrowdHuman; ITOP; MP-3DHP; UR Fall Detection Dataset; SDSU PSG Human Fall Dataset; Custom dataset developed with PSG College of Technology
-","RGB video/images; Depth maps; Skeleton/keypoint data
-",DL,Local / Edge,"RGB and depth frames processed locally on KV260 edge device; RGB frames discarded immediately after human detection; no cloud transmission described; fall classification output displayed locally on LCD
-","Temporary local device memory for RGB images (~43 ms); no long-term cloud storage described
-","Local / Edge Processing; RGB frame deletion after detection; use of depth-based pose estimation; privacy-preserving on-device inference
-","Not explicitly reported
-","Privacy risks from camera-based monitoring in sensitive areas (e.g., bathrooms); risk of falls causing injury or death
-",Potential privacy concerns from vision-based monitoring; need to preserve subject privacy in sensitive environments; no explicit cybersecurity risks discussed
-b_fall_2025,\cite{b_fall_2025},2025,Vision,"Depth camera (Intel RealSense D455)
-","Custom dataset; recorded videos from participants aged 18–23
-","Depth maps; Skeleton/keypoint data; RGB video/images
-","Threshold-based
-",Local / Edge,"Real-time local processing; no cloud transmission described; future integration of SMS alerts mentioned
-","Not specified
-","Depth-based skeletal analysis only; non-intrusive monitoring; avoidance of raw video analysis; separate skeletal/CoG visualization for privacy; Local / Edge Processing
-","Not specified
-","Falls among elderly individuals; delayed emergency response; false positives/false negatives; privacy intrusion risks from camera-based monitoring; occlusion and viewpoint variation affecting detection
-",Vision-based monitoring may raise privacy concerns; deformation and occlusion can degrade detection accuracy; action-recognition methods may be computationally expensive; wearable sensors may fail to distinguish falls from normal ADLs; static thresholds may reduce adaptability; Kinect/depth-based systems may perform poorly under sunlight or outdoor conditions
-de_frutos_fall_2024,\cite{de_frutos_fall_2024},2024,Vision,"RGB camera;
-","CAUCAFall
-","RGB video/images; Skeleton/keypoint data
-","Classic ML
-",Cloud,"Video frames processed on a Google Cloud Virtual Machine; bounding-box and keypoint-derived features used for inference
-","Dataset images and generated observations/dataframes stored on cloud VM (implied); no explicit storage mechanism reported
-","Skeletal keypoint representation; Bounding-box abstraction; High-level scene features only; Anonymized observations; Privacy-preserving video anomaly detection
-","Not reported
-","Privacy invasion from surveillance-camera-based monitoring; Computational delays from heavy DL/CNN approaches; False positives/false negatives in fall detection
-",Surveillance-camera monitoring may compromise patient privacy; CNN-based systems require high computational resources causing delayed response; False positives when subjects bend to pick objects; Potential misclassification when body orientation aligns with camera perspective
+abdu_activity_2022,\cite{abdu_activity_2022},2022,Ambient,"mmWave/FMCW radar
+"
+kaur_fall_2022,\cite{kaur_fall_2022},2022,Ambient,Acoustic
+wang_indoor_2022,\cite{wang_indoor_2022},2022,Ambient,"Wi-Fi CSI
+"
+ji_sifall_2022,\cite{ji_sifall_2022},2022,Ambient,"Wi-Fi CSI
+"
+tohidypour_security-centric_2022,\cite{tohidypour_security-centric_2022},2022,Vision,RGB camera
 lin_fall_2022,\cite{lin_fall_2022},2022,Vision,"RGB camera
-","Custom
-","RGB video/images
-","Classic ML + DL
-","Local / Edge + Cloud
-","Images processed locally on edge AI hardware; only fall alerts/results transmitted to cloud server via Wi-Fi; images are not uploaded to the cloud
-","Not explicitly specified; temporary image storage on edge device memory during processing; cloud server stores monitoring/alert information
-","Local / Edge Processing; minimal data transmission (alerts only); no image upload to cloud
-","Wi-Fi communication mentioned; no explicit security mechanisms such as encryption/authentication/access control reported
-","Privacy leakage from transmitting image/video data to cloud servers; bandwidth overload; cloud/server overload; network latency; packet blockage/loss due to insufficient bandwidth
-",Personal privacy leakage from video/image transmission; cloud-based processing exposes sensitive visual data; bandwidth congestion and delays may impair emergency response; occlusion and lighting conditions can reduce reliability and increase false alarms/missed detections
-ma_fall_2025,\cite{ma_fall_2025},2025,Vision,"Thermopile IR sensors (AMG8833 Grid-EYE 8×8 thermopile arrays); low-resolution thermal sensors
-","Custom
-","Thermal imagery; motion/event-related thermal patterns
-","Classical ML
-
-","Local / Edge
-","Raw thermal sensor data transmitted over serial link to processing computer; synchronized multisensor acquisition
-","Not explicitly stated; likely local raw-data storage during experiments
-",Non-visual sensing; low-resolution thermal sensing; privacy-preserving IR sensing,"Not explicitly reported
-","Occlusion from furniture/objects; sensor line-of-sight blockage; environmental changes/furniture rearrangement; clothing effects reducing IR detectability; ROI limitation (cannot detect outside monitored room)
-",Potential residual privacy concerns from thermal sensing; inability to detect falls outside monitored region; sensor failure due to occlusion; performance degradation from thick clothing; sensitivity to furniture rearrangement requiring recalibration; lack of failsafe detection; possible reduced robustness in real-world unconstrained environments
-prasad_hybrid_2023,\cite{prasad_hybrid_2023},2023,Vision,"Dynamic Vision Sensor (DVS) cameras (DAVIS 346, DAVIS 240)
-","DVSFall (custom dataset)
-","Event-based vision data; DVS event streams; grayscale accumulated frames; spatiotemporal event data
-","Classic ML + DL
-","Local / Edge
-",Event-based data streams transmitted from DVS cameras; AEDAT 4.0 event-data format; offline training on workstation/GPU; intended deployment on neuromorphic edge hardware,"Local storage of AEDAT 4.0 event files and processed NumPy tensors
-","Dynamic Vision Sensors capturing only intensity changes; non-RGB/event-based sensing; reduced visual detail; privacy-preserving vision sensing; sparse event representation
-","Not explicitly reported
-","Privacy invasion from conventional RGB/frame-based indoor surveillance cameras; exposure of identifiable visual information; motion blur and lighting sensitivity in standard cameras
-",Conventional frame-based cameras are privacy invasive; video anonymization may still not fully protect privacy; ambient surveillance in homes raises privacy concerns; low-resolution/privacy-preserving sensing may sacrifice input quality; DVS cameras can still capture human movement patterns though with reduced identity exposure
-sanjalawe_hyperfallnet_2025,\cite{sanjalawe_hyperfallnet_2025},2025,Vision,"RGB camera
-","CUCAFall; DiverseFALL10500
-","RGB video/images
-",DL,"Local / Edge + Cloud (paper discusses suitability for edge deployment and possible cloud infrastructures)
-","Not explicitly implemented; paper discusses potential transmission of high-resolution RGB video to central servers for inference
-","Not explicitly specified; implied storage of video datasets and possible centralized video storage
-","Privacy-aware design claims; lightweight edge inference; proposed future use of Federated Learning; possible future use of skeletal data, depth maps, and thermal imaging; mention of edge-only inference as future work
-","None explicitly implemented; mentions concerns regarding data security risks and encrypted streams as future direction
-","Privacy leakage from continuous RGB surveillance; transmission of high-resolution video to central servers; false positives/false negatives in unconstrained environments; occlusions; adversarial environmental conditions (lighting/background changes); lack of interpretability/trust; hardware/resource limitations; GDPR/HIPAA compliance concerns
-","Continuous RGB monitoring considered intrusive in private spaces (bathrooms, bedrooms, assisted living); potential exposure of sensitive video data during transmission to cloud servers; lack of privacy-preserving mechanisms in current implementation; absence of explainability may reduce trust/accountability; risks from centralized inference/storage; vulnerability to environmental noise causing incorrect detections"
-fauzi_privacy-aware_2025,\cite{fauzi_privacy-aware_2025},2025,Vision,"RGB camera
-","Le2i Fall Dataset
-","RGB video/images; Skeleton/keypoint data
-",DL,"Local / Edge + Cloud (implied: camera/pose extraction can run on edge, DP training performed centrally; deployment discussion mentions edge devices with possible centralized training)
-","Pose skeleton sequences extracted from RGB video; raw video potentially processed for pose estimation; DP-SGD transmits/uses noisy gradients during training; discussion mentions possibility of transmitting only gradient/model updates in future federated learning setup
-","Implicit storage of pose sequences and training data; concerns discussed regarding raw video storage and transmission; no explicit storage architecture stated
-","Differential Privacy (DP-SGD); Pose/skeleton-based representation instead of raw video; Local / Edge Processing (discussed for deployment); Federated Learning proposed as future work
-","No explicit security mechanisms reported
-",Privacy leakage from continuous video surveillance; inference of individual behaviors/identities from training data; exposure of sensitive identity/lifestyle information through raw video; confidentiality risks from storing/transmitting raw footage; adversarial inference about whether an individual’s data was used in training,Raw video surveillance perceived as invasive; storage/transmission of raw footage poses confidentiality risks; DP introduces reduced detection accuracy and disproportionately harms minority-class (fall) detection; stronger privacy budgets may make the model unreliable for safety-critical deployment; potential cumulative privacy-budget exhaustion during repeated retraining/online learning; trade-off between privacy and utility may increase missed falls or false alarms
-naser_privacy-preserving_2023,\cite{naser_privacy-preserving_2023},2023,Vision,"Thermal camera; Low-resolution Thermal Sensor Array (TSA); Far Infrared (FIR) thermal sensor
-","Custom
-","Thermal imagery; Motion data derived from optical flow; Motion sequence data
-",DL; Threshold + DL,"Local / Edge + Cloud
-",Fall alerts and processed detection results transmitted to information support/emergency contacts through a mobile application interface; user confirmation before alert transmission,"Not explicitly specified
-","Low-resolution thermal sensing; Non-visual sensing; Human motion feature extraction instead of raw imagery; Human-in-the-loop confirmation; Local preprocessing of thermal data
-","Not explicitly specified
-","False-positive fall alerts; False-negative fall detection; Privacy leakage from camera-based monitoring; Potential reconstruction/mapping of low-resolution thermal data to identifiable high-resolution imagery; Ambient thermal noise; Reliability issues in noisy domestic environments
-",Privacy concerns with conventional vision/camera systems; Potential extraction of identifiable information from low-resolution TSA via mapping to high-resolution thermal images; Risk of false emergency alerts wasting resources; Sensitivity to ambient temperature and thermal noise affecting reliability; Sensor placement limitations and occlusion from furniture; Dependence on user confirmation devices such as smartphones
+"
 prasad_real-time_2022,\cite{prasad_real-time_2022},2022,Vision,"Dynamic Vision Sensor (DVS)
-","Custom (DVS UR Fall dataset derived from UR Fall dataset)
-","Silhouette data; Motion event data
-",DL,"Local / Edge
-","DVS event streams transmitted via TCP/IP protocol to edge device; buffered frames planned for transmission to nearest health centre upon fall detection
-","AEDAT 4.0 local storage of DVS event data and accumulated frames
-","Non-visual sensing; Event-based vision sensing; Low-identifiability DVS data; Edge processing
-","None explicitly reported
-","Privacy invasion from RGB/frame-based surveillance cameras; data redundancy in continuous surveillance; false negatives in fall detection; lighting-condition failures in conventional cameras
-",Potential invasion of privacy with conventional RGB cameras; privacy/security tradeoff in elderly monitoring; risk of identifiable visual information in frame-based video surveillance; class imbalance causing unreliable evaluation; event-based cameras still require noise filtering due to background activity noise
-zahan_sdfa_2023,\cite{zahan_sdfa_2023},2023,Vision,"RGB camera (low-resolution conventional camera); OpenPose-based 2D skeleton extraction
-","URFD; UPFD; UWA3D; NTU-60; NTU-120
-","RGB; Skeleton/keypoint data (2D human skeleton joints extracted from RGB videos)
-",DL,"Local / Edge
-","Videos are processed to extract 2D skeleton coordinates using OpenPose; video frames are discarded after skeleton extraction; only skeleton data used for training/inference
-","Skeleton/keypoint data retained; videos not stored after processing
-","Skeleton-based representation; low-resolution video capture; discarding original video after pose extraction; privacy-preserving non-appearance-based sensing
-","Not explicitly mentioned
-","Privacy invasion from conventional video monitoring; possible reverse engineering risks in encoded/anonymized video approaches; false alarms in wearable systems; challenges from viewpoint variation, self-occlusion, and unseen fall types
-","Direct RGB video monitoring violates privacy and may create legal concerns; encoded/anonymized videos may still allow reverse engineering to recover identity; wearable systems may produce false positives/false alarms; low generalization risk across unseen subjects, viewpoints, and activities"
-mobsite_semantic_2023,\cite{mobsite_semantic_2023},2023,Vision,"RGB camera; Microsoft Kinect camera
-","COCO Stuff 2017; PASCAL VOC 2012; UP Fall dataset; UR Fall dataset; Custom post-fall dataset
-","RGB video/images; Silhouette data; Skeleton/human pose representations
-",DL,"Local / Edge
-","Binary silhouette frames transmitted instead of raw RGB video; alerts and processed data transmitted to caregivers/emergency services
-","Not explicitly specified
-","Human silhouette extraction; Non-visual abstraction of RGB frames into binary masks; Local processing of visual data before transmission
-","Not explicitly specified
-","Privacy leakage from raw camera footage; monitoring/privacy concerns in camera-based surveillance; environmental variation affecting detection reliability
-",Raw RGB surveillance images may expose sensitive personal information and compromise privacy; camera monitoring in real-life environments raises privacy concerns; static feature extraction methods may fail under changing environmental conditions leading to inaccurate detection
-wu_video-based_2024,\cite{wu_video-based_2024},2024,Vision,"RGB camera
-","UR Fall Detection Dataset (UR); Le2i Fall Detection Dataset; Fall Detection Dataset (FDD); Multiple Cameras Fall Dataset (Multicam); Custom dataset: CFDD (Comprehensive Fall Detection Dataset)
-","RGB video/images; Skeleton/keypoint data; Pose images
-","Classic ML + DL
-","Local / Edge (inferred; processing performed locally on video streams with no cloud discussion)
-","Not reported / not specified
-","Not reported / not specified
-","Human pose extraction instead of raw RGB analysis; Privacy-preserving pose images; Non-visualized background removal; Unsupervised learning without identity-focused data; Reduced exposure of raw appearance information
-","Not reported
-","Privacy leakage from direct RGB-image-based monitoring; Environmental interferences; Occlusions; Overfitting to fall samples; Imbalanced datasets; Annotation burden
-",Existing RGB vision systems may expose personal privacy; Direct display/detection on RGB images is “not conducive to privacy protection”; Possible robustness limitations under occlusion/environmental interference; Dependence on pose-estimation quality; Supervised methods have weak generalization and overfitting risks
-thipprachak_convolutional_2023,\cite{thipprachak_convolutional_2023},2023,Ambient,"UWB radar / Ultra-wideband (UWB) impulse radar sensor (Novelda Xethru X4M03)
-","Custom
-","Radar reflections; Motion event data; RF signal variations
-",DL,"Local / Edge (inferred from on-device sensor processing and CNN inference)
-","Not explicitly stated; sensor data processed locally from UWB radar signals
-","Not explicitly stated
-","Non-visual sensing (UWB); Privacy-aware sensing in private areas; Background subtraction to remove irrelevant environmental information
-","Not reported
-","Privacy concerns from camera-based monitoring; Falls in private areas going unnoticed; False alarms from fall-like movements; Environmental interference/noise in radar reflections
-",Camera systems create privacy concerns in private areas such as toilets/restrooms; Wearables may be inconvenient and battery-limited; Static-posture approach may still misclassify non-fall lying behavior; Environmental noise/interference and clutter can affect radar signals; Difficulty comparing across room layouts and participant variability
-froehlich_millimeter-wave_2024,\cite{froehlich_millimeter-wave_2024},2024,Ambient,"mmWave radar; MIMO radar
-","Custom
-","Radar reflections; Doppler signatures; RF signal variations
-","DL
-","Local / Edge
-","Raw radar data collected by two synchronized radar nodes and transmitted to a connected PC for preprocessing and deep-learning-based classification
-","Not explicitly stated
-","Non-visual sensing (radar-based sensing instead of cameras); contactless sensing; privacy-preserving radar sensing
-","Not explicitly stated
-","Privacy concerns associated with optical cameras; inability of single monostatic radars to capture lateral/tangential movements leading to misclassification; interference between radars; systematic radar errors such as cross-talk
-","Cameras are considered privacy-invasive and light-dependent; single-radar systems may fail to detect certain movement directions, reducing reliability; confusion between similar activities (e.g., sitting down vs. bending forward) can lead to misclassification; no explicit cybersecurity protections discussed"
-abdu_activity_2022,\cite{abdu_activity_2022},2022,Ambient,"FMCW radar
-","University of Glasgow radar human activity dataset
-","Radar reflections; Doppler signatures; RF signal variations; Micro-Doppler spectrograms
-","Classic ML + DL
-","Local / Edge
-","Not explicitly discussed; radar data processed locally for spectrogram generation and classification
-","Not explicitly discussed
-","Non-visual sensing; Contactless sensing; Privacy-preserving radar sensing
-","Not reported
-","Privacy invasion from camera-based monitoring; discomfort and usability issues with wearable sensors; risk of elderly falls causing injury, hospitalization, or death
-","Camera systems may violate user privacy and are considered intrusive; wearable devices may require continuous wearing and user interaction, which may fail if the elderly person becomes unconscious after a fall; no explicit cybersecurity risks discussed"
-bayad_adaptive_2025,\cite{bayad_adaptive_2025},2025,Ambient,"Wi-Fi CSI
-","ENetFall
-","RF signal variations
-","DL
-","Local / Edge
-","Not specified
-","Not specified
-","Non-visual sensing; Local / Edge Processing (implied through lightweight real-time deployment and privacy-preserving WiFi sensing)
-","Not specified
-","Privacy concerns with camera-based systems; limitations of wearable adherence; environmental variability; unseen environments and unseen individuals affecting model generalization; NLoS challenges; signal interference/noise
-","Potential privacy concerns avoided by cameras; reduced practicality in sensitive areas (bathrooms/bedrooms) with vision systems; performance degradation in unseen environments/participants; susceptibility to noise, interference, hardware imperfections, missing/occluded signal parts, and overfitting"
-kim_amfall_2025,\cite{kim_amfall_2025},2025,Ambient,"Wi-Fi CSI
-","Custom (Datasets A and B collected by authors); third-party datasets C and D
-","RF signal variations
-","DL; Threshold + DL
-","Local / Edge
-","CSI data collected from commodity WiFi devices; raw CSI observations processed locally for preprocessing, scalogram generation, segmentation, and classification
-","Not explicitly specified
-","Non-visual sensing; RF/WiFi sensing as privacy-preserving alternative to cameras; nonwearable sensing
-","Not explicitly reported
-","NLOS (non-line-of-sight) conditions; through-the-wall (TTW) conditions; cross-domain performance degradation; noisy CSI environments; insufficient training data; environmental dependency; deployment constraints with limited processing capability
-","Camera-based systems raise privacy concerns; infrared systems may also raise privacy concerns; wearable systems depend on user compliance; WiFi CSI systems may suffer degraded performance in noisy, TTW, NLOS, and cross-domain scenarios; potential inaccuracies due to environmental noise and poor scattering environments"
-li_enhanced_2024,\cite{li_enhanced_2024},2024,Ambient,"mmWave radar; FMCW radar
-","Custom
-","Radar reflections; Doppler signatures; Motion event data; RF signal variations; Point cloud data
-","Threshold + DL
-","Local / Edge
-","Radar point cloud data transmitted from mmWave radar to laptop via USB; anomaly scores and fall alerts generated locally
-","Local raw-data storage
-","Non-visual sensing; Privacy-friendly mmWave sensing; Device-free sensing
-","Not reported
-","Privacy invasion from RGB/RGBD camera monitoring; false alarms/misdetection in complex scenes; inability to distinguish falls from ADL such as sitting, crouching, kneeling, stooping; challenges in cluttered/confined environments; noise susceptibility
-","Camera-based monitoring raises significant privacy concerns in sensitive spaces (e.g., bathrooms, fitting rooms); mmWave systems may still experience false alarms and misclassification in complex real-world environments; advanced high-power radar could potentially “see” through walls/furniture, implying future privacy concerns regarding contactless monitoring"
-istiqomah_comparing_2025,\cite{istiqomah_comparing_2025},2025,Ambient,"FMCW radar; mmWave radar (Texas Instruments AWR1843AOP / IWR6843AOPEVM)
-","Custom
-","Radar reflections; Doppler signatures; Motion event data; RF signal variations; Point cloud data (XYZ position, velocity, acceleration)
-","DL
-","Local / Edge
-","FMCW radar point cloud data processed locally; radar data generated via onboard DSP/hardware accelerator and used directly for local classification
-","Local raw-data storage
-","Non-visual sensing; Device-free sensing; Radar-based sensing preserving user privacy
-","Not reported
-","Privacy concerns of camera-based systems; lighting disturbances affecting vision systems; false alarms from wearable sensors; misclassification between falls and similar activities (sitting, bending, squatting); computational trade-offs for real-time deployment
-",Vision-based systems raise privacy concerns and have limited usability in sensitive indoor environments; wearable systems depend on user compliance and may generate false alarms; infrared systems are vulnerable to environmental/temperature variations; larger timestep models increase computational load and may reduce efficiency for real-time deployment
-liang_edge-accelerated_2025,\cite{liang_edge-accelerated_2025},2025,Ambient,"mmWave radar; FMCW radar (Texas Instruments IWR6843ISK with DCA1000EVM)
-","Custom
-","Radar reflections; Doppler signatures; RF signal variations
-","DL
-","Local / Edge
-","Radar data transmitted via UDP and stored in DDR memory; on-device FPGA/ARM processing; alerts triggered via GPIO interrupt; no cloud transmission mentioned
-","Local raw-data storage; local DDR memory buffering; quantized CNN model stored on FPGA/edge device
-","Non-visual sensing (mmWave FMCW radar); Local / Edge Processing
-","None explicitly reported
-","Privacy leakage from camera-based systems; user non-compliance with wearable sensors; noise/clutter interference; signal overlap in multi-target scenarios; low SNR; environmental complexity
-","Vision-based systems raise privacy concerns and are sensitive to lighting/occlusion; wearable devices may cause discomfort and poor compliance; radar systems may experience false alarms, signal overlap, clutter, and degraded performance in complex multi-target environments; no explicit cybersecurity protections discussed"
-akash_elderly_2023,\cite{akash_elderly_2023},2023,Ambient,"mmWave radar; FMCW radar; SIMO/MIMO radar antenna
-","Custom
-","Radar reflections; Doppler signatures; Motion event data; RF signal variations
-","Threshold-based
-","Local / Edge + Cloud
-","Radar IF signal processed locally on MCU; extracted radar data transmitted to Arduino IoT Cloud; real-time alerts and monitoring accessible via smartphone application
-","Cloud historical-data storage / IoT cloud storage (Arduino IoT Cloud implied)
-","Non-visual sensing; mmWave FMCW radar used instead of cameras; privacy-friendly monitoring in bathrooms and private spaces
-","Not reported
-","Privacy invasion from cameras in bathrooms/private spaces; inability of cameras to work effectively in no-light/night conditions; risk of falls and bathroom accidents due to heat shock, dizziness, heart attack, or cerebral infarction
-",Camera-based systems compromise privacy; nighttime monitoring limitations of cameras; limited multi-target detection capability due to small SIMO configuration; reduced positioning capability in larger environments; no explicit cybersecurity/security protections discussed
-liu_enhancing_2024,\cite{liu_enhancing_2024},2024,Ambient,"Microphone; Sound sensors; Ambisonic microphones
-","Custom (real-world elderly fall audio dataset with simulated and unscripted falls)
-","Acoustic signals
-","Classic ML + DL
-","Local / Edge + Cloud (implied smart-home intelligent terminal with possible distributed/federated processing)
-","Audio collected locally; only model updates shared via federated learning; encrypted audio recordings
-","Local data retained on devices for federated learning; encrypted storage of audio recordings (exact storage architecture not fully specified)
-","Federated Learning; Non-visual sensing (audio-based instead of cameras); Audio anonymization; Encryption
-","Encryption
-",Privacy invasion from camera-based systems; exposure of personal home activities; risks from continuous monitoring; unattended falls; false positives/false negatives; silent falls not producing detectable audio,Continuous acoustic monitoring may raise ethical/privacy concerns; background noise variability may affect reliability; silent falls may not be detected; dependence on sound events limits robustness; user acceptance concerns regarding continuous monitoring
-kaur_fall_2022,\cite{kaur_fall_2022},2022,Ambient,"Microphone
-","Custom
-","Acoustic signals
-",DL,"Local / Edge
-","Ambient audio recorded by robot microphones and sent to the locally saved Transformer model for inference; alert text message sent when fall detected
-","Local model storage; locally collected custom audio dataset
-","Non-visual sensing; non-intrusive sensing; audio-based monitoring instead of cameras
-","Not reported
-","Privacy invasion from vision-based monitoring; false alarms; inability to distinguish distress speech from normal speech; noisy bathroom environments
-",Vision-based systems invade privacy; wearable devices may be intrusive or forgotten; acoustic monitoring may misclassify speech-related sounds leading to false positives/false negatives; no explicit security framework discussed
-chen_fall_2025,\cite{chen_fall_2025},2025,Ambient,"Electrostatic sensor; Electrostatic measurement system; Induction electrodes / copper foil electrode plates
-","Custom
-","Motion event data; Electrostatic time-series signals
-",DL; Signal decomposition + DL,"Local / Edge (signals processed locally on workstation; no cloud mentioned)
-
-","Electrostatic signals collected by electrodes; A/D converted and stored; wireless transmission module enables real-time display and storage on host computer
-","Local raw-data storage
-","Non-visual sensing; Noncontact sensing; Local processing; Privacy-friendly electrostatic sensing
-","Not reported
-",Privacy invasion from camera/video-based systems; Environmental interference affecting sensor accuracy; Humidity affecting electrostatic charge accumulation; Overlapping electrostatic signals from multiple people causing false alarms; Limited sensing range; False alarms/misclassification,Visual/camera systems infringe privacy; Electrostatic sensing performance degrades in high humidity/rainy conditions; Multiple people in sensing area may overlap signals and cause false alarms; Limited dataset diversity may reduce robustness/generalizability; Environmental sensitivity may reduce accuracy
-regani_fallaware_2025,\cite{regani_fallaware_2025},2025,Ambient,"Wi-Fi CSI (Channel State Information) using COTS WiFi devices
-","Custom
-","RF signal variations; Motion event data
-","Classic ML + DL
-","Local / Edge
-","CSI collected between Tx–Rx WiFi devices; no cloud-based services required; each Tx–Rx pair operates independently; alerts/fall probabilities generated locally
-","Local raw-data storage (CSI recordings stored for offline processing and evaluation)
-","Non-visual sensing; Local / Edge Processing; passive sensing without cameras or wearables
-","Not explicitly discussed
-","Privacy invasion from cameras; inconvenience/noncompliance with wearables; false alarms from routine activities; environment dependence of WiFi sensing systems; interference from pets, multiple occupants, and ambient motion; noise/outliers in CSI; coverage limitations in radar systems
-","Camera systems continuously monitor users and invade privacy; wearable devices may be inconvenient and forgotten; WiFi sensing systems may generate false alarms in real deployments; environmental changes can degrade model generalization; pets and multiple occupants can trigger false detections; interference from mechanical motion sources (e.g., ceiling fans) may affect reliability"
-meng_gr-fall_2025,\cite{meng_gr-fall_2025},2025,Ambient,"mmWave radar; SISO (Single-Input Single-Output) mmWave radar; Infineon BGT60TR13C
-","Custom
-","Radar reflections; Doppler signatures; Motion event data; Range-Doppler (RD) heatmaps; Micro-Doppler (MD) heatmaps
-","Classic ML + DL
-","Local / Edge
-","IF (intermediate frequency) radar signals transmitted from radar to laptop for further analysis; alerts triggered only when fall + abnormal gait detected
-","Not explicitly specified
-","Non-visual sensing; mmWave radar as privacy-preserving and non-invasive sensing; local processing using radar heatmaps instead of cameras
-","Not explicitly specified
-","Privacy concerns from camera-based monitoring; environmental variations affecting sensing performance; occlusion by objects or people; dynamic environments causing interference; missed alarms; false alarms; limited sensing coverage in large spaces
-",Camera-based systems raise privacy concerns; Wi-Fi CSI systems susceptible to environmental variations; SISO radar has limited information compared to MIMO radar; signal attenuation at larger distances/angles; occlusion can reduce captured motion information; limited sensing range may fail to detect targets outside coverage area; moving people/objects can obstruct radar line-of-sight and slightly reduce performance
-wing_lo_high_2026,\cite{wing_lo_high_2026},2026,Ambient,"Thermal sensor (AMG8833 thermal array sensors); NB-IoT communication module
-","Custom
-","Thermal imagery; Motion event data; Infrared temperature readings; Heat location maps
-","Threshold + DL
-","Local / Edge + Cloud
-","Thermal sensor data transmitted from MCU to server using NB-IoT over HTTP; encrypted message transmission; 64-pixel thermal readings posted separately to server; processed alerts sent to users
-","Cloud historical-data storage; server-side storage implied for continuous data collection and CNN training
-","Non-visual sensing (thermal sensors instead of cameras); Local / Edge Processing using MCU; privacy-preserving thermal sensing; no visual image capture
-","Encryption; Secure communication via encrypted HTTP transmission; separation from internal networks using NB-IoT
-","Privacy invasion from cameras in private areas; false alarms from single thermal sensor setups; blind spots in radar systems; interception of unencrypted communications; delayed medical response after falls
-",Cameras raise serious privacy concerns in toilets/private rooms; acoustic sensing may capture sensitive environmental sounds; radar has blind spots and false detections; single thermal sensor may generate false alarms due to body-size variation; HTTP alone transmits plaintext unless encrypted; system accuracy affected by room geometry and sensor placement
-razali_implementing_2025,\cite{razali_implementing_2025},2025,Ambient,"Passive Wi-Fi radar; Wi-Fi RSSI sensing; omnidirectional antennas
-","Custom
-","RF signal variations; RSSI signal variations; motion event data
-","Threshold-based
-","Local / Edge + Cloud
-","Wi-Fi RSSI signals captured locally by receiver hardware and DAQ system; signal processed locally for real-time threshold classification; no cloud transmission discussed
-","Local experimental dataset storage on laptop/DAQ system (implied); no cloud storage discussed
-","Non-visual sensing; radar-based sensing; passive Wi-Fi sensing; no wearable devices required
-","Not specified
-","Privacy concerns from camera-based systems; low user compliance with wearables; environmental sensitivity and occlusion in vision systems; multipath propagation effects; false alarms/misclassification in fall detection; challenges in multi-person environments
-","Vision-based systems raise privacy concerns in bedrooms/bathrooms; wearable devices may fail due to discomfort, battery depletion, or damage during falls; voltage-threshold method produced high false positives/false negatives; controlled-environment limitation may reduce generalizability; performance decreases in complex dual-activity scenarios; system not yet validated for real-world multi-person settings"
-patriananda_inception-resnet_2026,\cite{patriananda_inception-resnet_2026},2026,Ambient,"FMCW radar; mmWave radar; Texas Instruments IWR6843AOP radar
-","Custom
-","Radar reflections; Doppler signatures; Motion event data; RF signal variations; Point-cloud kinematic data (position, velocity, acceleration)
-","Threshold + DL
-","Local / Edge
-","Raw radar point-cloud/object parameters transmitted from radar to host computer via UART; onboard DSP performs detection/tracking; processed feature windows sent to inference thread; alerts/status outputs transmitted internally between multithreaded modules
-","Not explicitly specified
-","Non-visual sensing using FMCW/mmWave radar; privacy-preserving monitoring without cameras; local/edge processing; physics-informed validation layer (SPI) reducing need for visual monitoring
-","Not explicitly reported
-","False alarms from fall-like activities (squatting, bending, sitting); degraded detection reliability near ROI edges; environmental variations; multipath reflections; static clutter; partial occlusions; ghost targets; instability from temporal prediction fluctuations; reduced angle-estimation accuracy at off-axis positions; domain generalization limitations
-",Potential false alarms near ROI edges; degraded robustness in uncontrolled environments; sensitivity to room geometry and static reflectors; threshold dependence requiring recalibration across environments; performance degradation at longer distances due to reduced SNR; multipath propagation causing unstable positioning and ghost targets; difficulty distinguishing squatting from falls; lack of scalability to multi-subject and large-scale environments
-wang_indoor_2022,\cite{wang_indoor_2022},2022,Ambient,"Wi-Fi CSI (Channel State Information); Commercial Wi-Fi devices; Intel 5300 wireless card
-","Custom
-","RF signal variations; CSI streams; Wireless channel state information; Motion-related signal fluctuations
-","Threshold + Classic ML
-","Local / Edge
-","Raw CSI data collected locally between Wi-Fi transmitter and receiver; CSI transmitted from sensing phase to processing modules for preprocessing, feature extraction, and classification
-","Local raw-data storage (implied; CSI datasets collected and processed locally on laptops)
-","Non-visual sensing; Device-free sensing; Privacy-preserving wireless sensing; No wearable devices required
-","Not reported
-","Privacy invasion from camera-based systems; Exposure of sensitive facial information; Environmental variability affecting model generalization; Wireless signal degradation due to obstacles/furniture; Limited robustness in complex environments
-",Camera-based systems may capture sensitive user information such as facial data; Model trained in one room is not universal and requires retraining in new environments; Detection accuracy affected by indoor obstacles and environmental changes; Limited evaluation in only simple indoor scenarios; Potential deployment limitations in real-world complex environments
-almallah_intnet_2026,\cite{almallah_intnet_2026},2026,Ambient,"FMCW radar; 60 GHz Infineon XENSIV BGT60TR13C radar; mmWave radar
-","Custom
-","Radar reflections; Doppler signatures; RF signal variations; Range-velocity heatmaps
-",DL,"Local / Edge
-","Raw radar data transmitted from radar to laptop via USB 2.0; processing and classification performed locally/offline; no cloud dependency emphasized
-","Local raw-data storage on laptop
-","Non-visual sensing; Edge/local processing; Minimal hardware setup; Avoidance of visual/acoustic monitoring to preserve privacy
-","Not reported
-","Privacy invasion from visual/acoustic monitoring; False alarms due to complex movements, guests, overlapping activities, and rapid transitions; Network latency and reliability concerns; Redundant computation in real-time systems
-",Visual- and acoustic-based monitoring raise privacy concerns; Wearables reduce comfort and cannot guarantee continuous monitoring; Complex real-world multi-person or rapid movement scenarios may increase false alarm rates; Extreme multi-person chaotic scenarios not addressed; No explicit cybersecurity protections discussed
-gu_ir-st_2023,\cite{gu_ir-st_2023},2023,Ambient,"FMCW millimeter-wave radar (Texas Instruments IWR6843ISK radar module); mmWave radar
-","Custom
-","Radar reflections; Doppler signatures; RF signal variations; Micro-Doppler maps (range-Doppler-average matrix representations)
-",DL,"Local / Edge
-","Not explicitly described; radar IF signals processed locally to generate micro-Doppler maps and classification outputs
-","Not explicitly described
-","Non-visual sensing (mmWave radar instead of cameras); Local / Edge Processing; Privacy-preserving sensing through radar-based monitoring
-","Not reported
-","Privacy concerns from camera-based monitoring in private areas (e.g., bathrooms, bedrooms); Environmental interference/noise affecting sensing accuracy; Poor visibility conditions impacting optical sensors
-",Optical/camera systems may violate privacy; Vision sensors unsuitable for private environments; Environmental clutter and interference can affect radar signals and detection accuracy; No explicit cybersecurity protections discussed
-thipprachak_privacy-preserving_2024,\cite{thipprachak_privacy-preserving_2024},2024,Ambient,"UWB radar; Ultra-wideband impulse radar; Novelda Xethru X4M03 UWB sensor
-","Custom
-","RF signal variations; Radar reflections; Doppler signatures; Range-time data; Range-frequency (range-Doppler) data; Motion event data
-",DL,"Local / Edge + Cloud (model intended for deployment on computer/server; UWB sensing likely local, inference/deployment may involve server infrastructure)
-","Raw UWB radar/baseband signals collected and processed into range-time and range-frequency representations; activity probabilities and processed sequence data used for continuous classification
-","Local storage of collected radar datasets and activity sequence data (exact storage architecture not explicitly specified)
-","Non-visual sensing; Privacy-preserving radar sensing; No image/video capture; Ambient contactless sensing
-","Not reported
-","Privacy invasion from camera systems; User non-compliance with wearable sensors; Environmental interference/noise; Multipath interference in indoor radar sensing; Misclassification of fall-like activities; Limited generalization across environments
-",Camera-based HAR raises significant privacy concerns due to intrusive visual capture; wearable sensors may be forgotten or not worn; Wi-Fi systems susceptible to signal noise/interference; radar affected by environmental positioning/orientation; fall-like motions may cause false positives; performance depends on environmental setup and diversity of training data
-rocha_qoe-aware_2023,\cite{rocha_qoe-aware_2023},2023,Ambient,"Floor pressure/vibration sensor (FBG-based optical fiber accelerometers)
-","Custom
-","Pressure/vibration signals
-","Classic ML
-","Local / Edge + Cloud
-","Raw sensor data from FBG accelerometers transmitted to edge nodes; edge nodes process/classify data locally; alarm signals transmitted to centralized/cloud healthcare server; model trained offline using centralized cloud database
-","Cloud historical-data storage (training database stored in centralized/cloud servers)
-","Non-visual sensing; Non-wearable sensing; Edge/local processing; Privacy-preserving optical fiber sensing
-","Not explicitly reported
-","Privacy leakage from camera-based monitoring; invasiveness of wearable devices; latency in emergency response; reduced QoE from intrusive sensing; limited edge computational/storage resources
-",Vision-based systems are privacy-sensitive/invasive; wearable devices reduce user comfort and require charging/compliance; radar/video systems may compromise privacy; limited detection range of sensors can reduce accuracy; future challenges include handling multiple people and object-fall scenarios
-tan_real-time_2025,\cite{tan_real-time_2025},2025,Ambient,"FMCW radar (Texas Instruments IWR6843AOP)
-","Custom
-","Radar reflections; Doppler signatures; Motion event data
-","DL
-","Local / Edge
-","Real-time radar point cloud data streamed through serial communication; preprocessing and inference executed locally via multithreaded pipeline; no reliance on external cloud services
-","Local raw-data storage
-","Non-visual sensing; Local/Edge processing; Point-cloud based sensing without identifiable imagery
-","Not explicitly reported
-","Privacy leakage from camera-based systems; user compliance burden of wearable sensors; latency affecting emergency response; multipath reflections; occlusion; noise interference; overfitting risk due to limited dataset; single-subject monitoring limitation
-",Camera-based systems are privacy-invasive and environment-dependent; radar performance sensitive to placement and multipath reflections; controlled dataset limits generalizability; current system supports only single-person monitoring; limited dataset diversity may increase overfitting risk; computational efficiency and power consumption on embedded devices not fully evaluated
+"
+yu_elderly_2022,\cite{yu_elderly_2022},2022,Wearable,Accelerometer
+thipprachak_convolutional_2023,\cite{thipprachak_convolutional_2023},2023,Ambient,"UWB radar 
+"
+akash_elderly_2023,\cite{akash_elderly_2023},2023,Ambient,"mmWave/FMCW radar
+"
+gu_ir-st_2023,\cite{gu_ir-st_2023},2023,Ambient,"mmWave/FMCW radar
+"
+rocha_qoe-aware_2023,\cite{rocha_qoe-aware_2023},2023,Ambient,Vibration/Pressure sensing
+wu_toward_2023,\cite{wu_toward_2023},2023,Ambient,Vibration/Pressure sensing
+zhang_waffle_2023,\cite{zhang_waffle_2023},2023,Ambient,"mmWave/FMCW radar
+"
+he_noncontact_2023,\cite{he_noncontact_2023},2023,"Multimodal (Vision; Ambient)
+",Microwave Doppler radar; Thermal Sensors
+chen_fall_2023,\cite{chen_fall_2023},2023,"Multimodal (Vision; Ambient)
+",Vibration/Pressure sensing; Thermal Sensors
+qi_fl-fd_2023,\cite{qi_fl-fd_2023},2023,"Multimodal (Wearable; Vision)
+",Accelerometer; Gyroscope; RGB cameras
+ramesh_efficient_2023,\cite{ramesh_efficient_2023},2023,Vision,"RGB camera; Depth camera
+"
+prasad_hybrid_2023,\cite{prasad_hybrid_2023},2023,Vision,"Dynamic Vision Sensor (DVS)
+"
+naser_privacy-preserving_2023,\cite{naser_privacy-preserving_2023},2023,Vision,Thermal Sensors
+zahan_sdfa_2023,\cite{zahan_sdfa_2023},2023,Vision,RGB camera
+mobsite_semantic_2023,\cite{mobsite_semantic_2023},2023,Vision,RGB camera
+saha_blockthefall_2023,\cite{saha_blockthefall_2023},2023,Wearable,"Accelerometer; Gyroscope; Magnetometer
+"
+reyad_developed_2023,\cite{reyad_developed_2023},2023,Wearable,Accelerometer
+froehlich_millimeter-wave_2024,\cite{froehlich_millimeter-wave_2024},2024,Ambient,"mmWave/FMCW radar
+"
+li_enhanced_2024,\cite{li_enhanced_2024},2024,Ambient,"mmWave/FMCW radar
+"
+liu_enhancing_2024,\cite{liu_enhancing_2024},2024,Ambient,Acoustic
+thipprachak_privacy-preserving_2024,\cite{thipprachak_privacy-preserving_2024},2024,Ambient,"UWB radar
+"
 chen_sensing_2024,\cite{chen_sensing_2024},2024,Ambient,"Wi-Fi CSI
-","Custom
-","RF signal variations; Motion event data
-","DL
-","Local / Edge
-","CSI extracted from regular WiFi communication packets; real-time transmission of detection/alarm notifications to guardians via frontend interface, WeChat, and QQ
-","Local historical-data storage (history records, daily/monthly reports, guardian management); trained model stored locally as .pth files
-","Non-visual sensing; device-free sensing; WiFi sensing without wearable devices; integration of sensing and communication to avoid intrusive monitoring
-","Login/authentication for background management system
-","Privacy disclosure from camera/vision-based systems; discomfort and compliance burden from wearable devices; multipath effects and environmental interference affecting CSI sensing; reduced packet frequency under low communication traffic impacting detection accuracy
-","Existing camera-based systems raise privacy concerns; CSI quality may degrade under insufficient communication traffic; system performance depends on environment and requires scene-specific retraining; multipath-rich environments may affect robustness/generalization; no explicit cybersecurity protections (e.g., encryption, secure communication) reported"
-ji_sifall_2022,\cite{ji_sifall_2022},2022,Ambient,"Wi-Fi CSI; Commercial Wi-Fi APs
-","Custom
-","RF signal variations; Doppler/time-frequency signatures derived from Wi-Fi CSI; STFT spectra
-","Threshold + DL
-","Local / Edge + Cloud
-","Raw Wi-Fi CSI collected at front-end edge device and forwarded to back-end server; segmented STFT signal clips transmitted for inference and model updating; alerts triggered for detected falls
-","Saved suspicious activity samples and detected fall samples with timestamps; back-end model storage; historical activity samples retained for retraining
-","Non-visual sensing (RF/Wi-Fi sensing); Local / Edge Processing; Self-supervised learning without manual labeling
-","Not explicitly mentioned
-","Privacy concerns of camera/CV-based systems; RF signal ambiguity; data scarcity; environment variation (covariance shift); individualized movement variation (semantic shift); false alarms; inability to generalize to unseen falls; single-room occupancy limitation
-",Potential false alarms; inability to capture all real-world fall types; lack of elderly real-fall samples; limited operation in single-room occupancy; possible misclassification of unusual daily activities as falls; no explicit security protections discussed for transmitted/stored CSI data
-razali_threshold,\cite{razali_threshold},2024,Ambient,"Passive Wi-Fi radar; Wi-Fi transmitter/router; Omnidirectional antenna
-","Custom
-","Radar reflections; Doppler signatures; RF signal variations
-","Threshold-based
-","Local / Edge
-","Radar signals collected locally through receiver setup and transferred to laptop for processing and MATLAB analysis
-","Local digital storage of acquired radar signal data on laptop
-","Non-visual sensing; Passive Wi-Fi sensing using existing Wi-Fi infrastructure; No wearable devices required
-","Not explicitly mentioned
-","Privacy concerns of camera-based systems; inconvenience and battery limitations of wearable sensors; RF/radar radiation concerns; false positives and false negatives in fall detection; difficulty distinguishing falls from normal movements
-",Limited dataset and controlled experimental conditions may reduce real-world generalizability; potential misclassification between falls and non-fall activities; no explicit cybersecurity or data protection mechanisms discussed; reliance on threshold selection may affect robustness across environments and users
-wu_toward_2023,\cite{wu_toward_2023},2023,Ambient,"Floor pressure/vibration sensor (Geophone sensors)
-","Custom
-","Pressure/vibration signals
-","Classic ML
-","Local / Edge + Cloud
-","Raw vibration signals transmitted from sensing hardware to desktop/server via USB serial communication and Wi-Fi TCP protocol for further computation; warning messages transmitted after confirmed falls
-","Local raw-data storage; dataset collected and saved for offline analysis
-","Device-free sensing; Non-visual sensing; Local vibration sensing instead of cameras/wearables; User-independent model
-","None explicitly reported
-",Privacy concerns from camera-based systems; false alarms; multipath effect in RF systems; noisy environments; low sampling-rate limitations; cross-domain deployment challenges; multi-person interference; signal attenuation through walls/floor types,Vision-based systems violate privacy and fail in dark/NLoS conditions; wearable systems are obtrusive and user-unfriendly; RF systems suffer high false alarms and multipath effects; audio sensing captures surrounding sounds and is noise-sensitive; carpet floors absorb vibration causing low SNR; cross-floor deployment reduces accuracy; multi-person scenarios may cause missed detections or false alarm cancellation; no explicit cybersecurity protections discussed
-zhang_waffle_2023,\cite{zhang_waffle_2023},2023,Ambient,"mmWave radar; FMCW radar; COTS mmWave radar (Calterah CAL60S244-IB, CAL77S244-AB, TI AWR2944)
-","Custom
-","Radar reflections; Doppler signatures; Motion event data; 3D point cloud data
-","Threshold-based (Customized Weibull CFAR detector)
-","Local / Edge
-","ADC raw radar data forwarded to local laptop through TCP connection; processing performed locally; alarms/processed sensing outputs generated
-","Not explicitly stated
-","Non-visual sensing; Local / Edge Processing
-","Not explicitly stated
-","Running water interference causing false detections; Dynamic multipath reflections; False alarms in fall detection; Signal interference from water reflections; Limited radar FoV coverage
-",Potential privacy concerns in bathrooms motivate non-visual sensing; Running water interference severely reduces sensing accuracy; Multipath reflections can confuse sensing system; Low signal-to-interference ratio may make human detection ineffective; Limited sensing coverage in large bathrooms; Existing CFAR methods fail under non-Gaussian water interference
-cho_wi-fi-based_2025,\cite{cho_wi-fi-based_2025},2025,Ambient,"Wi-Fi CSI; Wi-Fi transceivers (ESP32S3 MCU boards); RGB camera (used only for ground-truth supervision/training)
-","MM-Fi dataset; Custom dataset (20 participants, fall-related scenarios)
-","RF signal variations; Motion event data; Skeleton/keypoint data; RGB video/images (for supervision/ground truth)
-",DL,"Local / Edge
-","CSI data transmitted from receivers to a central PC via USB/serial communication; synchronized CSI and RGB streams collected through ROS2 architecture; Wi-Fi packets transmitted continuously between transmitter and receivers
-","Not explicitly specified
-","Non-visual sensing (Wi-Fi CSI-based sensing); Vision-free operation; Use of CSI-derived skeletons instead of continuous camera monitoring; Minimal additional hardware leveraging existing Wi-Fi infrastructure
-","Not explicitly specified
-","Privacy concerns from continuous RGB/camera monitoring; Environmental variability affecting CSI signals; Multipath reflections; Background noise; Signal distortion due to room layout/furniture/people movement; Limited generalizability across subjects/sessions; Rapid motion/self-occlusion causing degraded estimation
-",Vision-based systems raise privacy concerns and require line-of-sight; CSI signals have lower spatial resolution than cameras; Pose estimation degrades during falls and dynamic motion; Environmental changes can reduce performance reliability; Difficulty tracking extremities accurately; Lack of strict cross-subject/cross-session validation limits generalizability assessment; Controlled-environment dependence may limit real-world robustness
+"
+razali_threshold,\cite{razali_threshold},2024,Ambient,"Passive Wi-Fi radar
+"
+mobsite_privacy-preserving_2024,\cite{mobsite_privacy-preserving_2024},2024,Vision,RGB camera
+de_frutos_fall_2024,\cite{de_frutos_fall_2024},2024,Vision,RGB camera
+wu_video-based_2024,\cite{wu_video-based_2024},2024,Vision,RGB camera
+wang_artificial_2024,\cite{wang_artificial_2024},2024,Wearable,Accelerometer; Gyroscope
+rowaili_fall_2024,\cite{rowaili_fall_2024},2024,Wearable,"Accelerometer; Gyroscope; Heart-rate sensor; GPS
+"
+afandy_federated_2024,\cite{afandy_federated_2024},2024,Wearable,Accelerometer; Heart-rate sensor
+bayad_adaptive_2025,\cite{bayad_adaptive_2025},2025,Ambient,"Wi-Fi CSI
+"
+kim_amfall_2025,\cite{kim_amfall_2025},2025,Ambient,"Wi-Fi CSI
+"
+istiqomah_comparing_2025,\cite{istiqomah_comparing_2025},2025,Ambient,"mmWave/FMCW radar
+"
+liang_edge-accelerated_2025,\cite{liang_edge-accelerated_2025},2025,Ambient,"mmWave/FMCW radar
+"
+chen_fall_2025,\cite{chen_fall_2025},2025,Ambient,Electrostatic sensor
+regani_fallaware_2025,\cite{regani_fallaware_2025},2025,Ambient,"Wi-Fi CSI 
+"
+meng_gr-fall_2025,\cite{meng_gr-fall_2025},2025,Ambient,"mmWave/FMCW radar
+"
+razali_implementing_2025,\cite{razali_implementing_2025},2025,Ambient,"Passive Wi-Fi radar
+"
+tan_real-time_2025,\cite{tan_real-time_2025},2025,Ambient,"mmWave/FMCW radar
+"
+cho_wi-fi-based_2025,\cite{cho_wi-fi-based_2025},2025,Ambient,"Wi-Fi CSI
+"
+chakraborty_smart_2025,\cite{chakraborty_smart_2025},2025,"Multimodal (Vision; Ambient)
+",Vibration/Pressure sensing; RGB camera
+abdelfattah_hybrid_2025,\cite{abdelfattah_hybrid_2025},2025,"Multimodal (Wearable; Ambient)
+","Accelerometer; Gyroscope; Wi-Fi CSI
+"
+aime_human-centric_2025,\cite{aime_human-centric_2025},2025,Multimodal (Wearable; Vision; Ambient),Accelerometer; Gyroscope; Heart-rate sensor; Temperature sensor; RGB camera
+lupion_privacy-aware_2025,\cite{lupion_privacy-aware_2025},2025,"Multimodal (Wearable; Vision)
+",Thermal sensor; Accelerometer; Gyroscope
+hossain_towards_2025,\cite{hossain_towards_2025},2025,"Multimodal (Wearable; Vision)
+",Accelerometer; Gyroscope; RGB camera
+tirziu_artificial_2025,\cite{tirziu_artificial_2025},2025,Vision,RGB camera
+tongsrihon_carevision_2025,\cite{tongsrihon_carevision_2025},2025,Vision,RGB camera
+halima_edge_2025,\cite{halima_edge_2025},2025,Vision,RGB camera
+b_fall_2025,\cite{b_fall_2025},2025,Vision,"Depth camera
+"
+sanjalawe_hyperfallnet_2025,\cite{sanjalawe_hyperfallnet_2025},2025,Vision,"RGB camera
+"
+fauzi_privacy-aware_2025,\cite{fauzi_privacy-aware_2025},2025,Vision,"RGB camera
+"
+ma_fall_2025,\cite{ma_fall_2025},2025,Vision,"Thermal sensor
+"
+razali_enhancing_2025,\cite{razali_enhancing_2025},2025,Wearable,"Accelerometer; Gyroscope; GPS
+"
+pathan_fedfall_2025,\cite{pathan_fedfall_2025},2025,Wearable,"Accelerometer; Gyroscope; Magnetometer
+"
+souadia_securing_2025,\cite{souadia_securing_2025},2025,Wearable,Accelerometer
+l_smart_2025,\cite{l_smart_2025},2025,Wearable,Accelerometer; Gyroscope; Heart-rate sensor; Temperature sensor; GPS; SpO2 sensor
+wing_lo_high_2026,\cite{wing_lo_high_2026},2026,Ambient,Infrared (IR)
+patriananda_inception-resnet_2026,\cite{patriananda_inception-resnet_2026},2026,Ambient,"mmWave/FMCW radar
+"
+almallah_intnet_2026,\cite{almallah_intnet_2026},2026,Ambient,"mmWave/FMCW radar
+"
