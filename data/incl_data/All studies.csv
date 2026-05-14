@@ -26,11 +26,11 @@ rocha_qoe-aware_2023,\cite{rocha_qoe-aware_2023},2023,Ambient,Vibration/Pressure
 wu_toward_2023,\cite{wu_toward_2023},2023,Ambient,Vibration/Pressure sensing
 zhang_waffle_2023,\cite{zhang_waffle_2023},2023,Ambient,"mmWave/FMCW radar
 "
-he_noncontact_2023,\cite{he_noncontact_2023},2023,"Multimodal (Vision; Ambient)
+he_noncontact_2023,\cite{he_noncontact_2023},2023,"Vision; Ambient
 ",Microwave Doppler radar; Thermal Sensors
-chen_fall_2023,\cite{chen_fall_2023},2023,"Multimodal (Vision; Ambient)
+chen_fall_2023,\cite{chen_fall_2023},2023,"Vision; Ambient
 ",Vibration/Pressure sensing; Thermal Sensors
-qi_fl-fd_2023,\cite{qi_fl-fd_2023},2023,"Multimodal (Wearable; Vision)
+qi_fl-fd_2023,\cite{qi_fl-fd_2023},2023,"Wearable; Vision
 ",Accelerometer; Gyroscope; RGB cameras
 ramesh_efficient_2023,\cite{ramesh_efficient_2023},2023,Vision,"RGB camera; Depth camera
 "
@@ -79,15 +79,15 @@ tan_real-time_2025,\cite{tan_real-time_2025},2025,Ambient,"mmWave/FMCW radar
 "
 cho_wi-fi-based_2025,\cite{cho_wi-fi-based_2025},2025,Ambient,"Wi-Fi CSI
 "
-chakraborty_smart_2025,\cite{chakraborty_smart_2025},2025,"Multimodal (Vision; Ambient)
+chakraborty_smart_2025,\cite{chakraborty_smart_2025},2025,"Vision; Ambient
 ",Vibration/Pressure sensing; RGB camera
-abdelfattah_hybrid_2025,\cite{abdelfattah_hybrid_2025},2025,"Multimodal (Wearable; Ambient)
+abdelfattah_hybrid_2025,\cite{abdelfattah_hybrid_2025},2025,"Wearable; Ambient
 ","Accelerometer; Gyroscope; Wi-Fi CSI
 "
-aime_human-centric_2025,\cite{aime_human-centric_2025},2025,Multimodal (Wearable; Vision; Ambient),Accelerometer; Gyroscope; Heart-rate sensor; Temperature sensor; RGB camera
-lupion_privacy-aware_2025,\cite{lupion_privacy-aware_2025},2025,"Multimodal (Wearable; Vision)
+aime_human-centric_2025,\cite{aime_human-centric_2025},2025,Wearable; Vision; Ambient,Accelerometer; Gyroscope; Heart-rate sensor; Temperature sensor; RGB camera
+lupion_privacy-aware_2025,\cite{lupion_privacy-aware_2025},2025,"Wearable; Vision
 ",Thermal sensor; Accelerometer; Gyroscope
-hossain_towards_2025,\cite{hossain_towards_2025},2025,"Multimodal (Wearable; Vision)
+hossain_towards_2025,\cite{hossain_towards_2025},2025,"Wearable; Vision
 ",Accelerometer; Gyroscope; RGB camera
 tirziu_artificial_2025,\cite{tirziu_artificial_2025},2025,Vision,RGB camera
 tongsrihon_carevision_2025,\cite{tongsrihon_carevision_2025},2025,Vision,RGB camera
