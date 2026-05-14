@@ -1,0 +1,6 @@
+Step,ACM,IEEE,ScienceDirect,Total
+Raw records,78,337,49,464
+Duplicate removal,72,315,49,436
+Publication type filtering,71,315,49,435
+Title/abstract filtering,29,315,38,382
+Year filtering (2022+),21,187,22,230
